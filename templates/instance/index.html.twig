@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Instance{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Live Questions</h1>
+        <nav>
+            <h3>NAVBAR</h3>
+            <ul>
+                <li>
+                    <a href="#user">USERS</a>
+                </li>
+                <li>
+                    <a href="#question">QUESTIONS</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="user">
+            <h3>USERS</h3>
+            {% for profil in profils %}
+                <div class="user">
+                    <p><img style="height: 90px; width: 90px;" src="{{ profil.image }}" alt="Image aléatoire.">L'utilisateur {{ profil.username }} est un.e {{ profil.role.wording }} son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
+                    <br>
+                </div>
+            {% endfor %}
+        </section>
+        <section id="question">
+            <h3>QUESTIONS</h3>
+            {% for question in questions %}
+                <article class="question">
+                    <h5>{{ question.title }}</h5>
+                    <p>{{ question.category.wording }} | {{ question.createdAt | date("m/d/Y") }}</p>
+                    <p>{{ question.profil.username }} | {{ question.profil.role.wording }}</p>
+                    <br>
+                    {% for answer in answers %}
+                        {% if question.id == answer.question.id %}
+                            <article class="answer">
+                                <p>{{ answer.profil.username }} | {{ answer.createdAt | date("m/d/Y") }}</p>
+                                <p>{{ answer.content }}</p>
+                            </article>
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+                </article>
+                <hr style="border-bottom: 1px solid #000; width: 100%;">
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}
