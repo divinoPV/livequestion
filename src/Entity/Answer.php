@@ -14,29 +14,29 @@ class Answer
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="ref_answer", type="integer")
+     * @ORM\Column(type="integer")
      */
     private int $id;
 
     /**
      * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="answers")
-     * @ORM\JoinColumn(name="ref_question", nullable=false, referencedColumnName="no_question")
+     * @ORM\JoinColumn(name="ref_question", nullable=false, referencedColumnName="id")
      */
     private Question $question;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="answers")
-     * @ORM\JoinColumn(name="ref_profil", nullable=false, referencedColumnName="id_prof")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="answers")
+     * @ORM\JoinColumn(name="ref_user", nullable=false, referencedColumnName="id")
      */
-    private Profil $profil;
+    private User $user;
 
     /**
-     * @ORM\Column(name="content_answer", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private string $content;
 
     /**
-     * @ORM\Column(name="created_at_answer", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     private DateTimeInterface $createdAt;
 
@@ -57,14 +57,14 @@ class Answer
         return $this;
     }
 
-    public function getProfil(): ?Profil
+    public function getUser(): ?User
     {
-        return $this->profil;
+        return $this->user;
     }
 
-    public function setProfil(Profil $profil): self
+    public function setUser(User $user): self
     {
-        $this->profil = $profil;
+        $this->user = $user;
 
         return $this;
     }

@@ -22,7 +22,13 @@
             <h3>USERS</h3>
             {% for profil in profils %}
                 <div class="user">
-                    <p><img style="height: 90px; width: 90px;" src="{{ profil.image }}" alt="Image aléatoire.">L'utilisateur {{ profil.username }} est un.e {{ profil.role.wording }} son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
+                    <p><img style="height: 90px; width: 90px;" src="{{ profil.image }}"
+                            alt="Image aléatoire.">L'utilisateur
+                        {{ profil.username }} est un.e
+                        {% for role in profil.roles %}
+                            {{ role }}
+                        {% endfor %}
+                        son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
                     <br>
                 </div>
             {% endfor %}
@@ -33,12 +39,15 @@
                 <article class="question">
                     <h5>{{ question.title }}</h5>
                     <p>{{ question.category.wording }} | {{ question.createdAt | date("m/d/Y") }}</p>
-                    <p>{{ question.profil.username }} | {{ question.profil.role.wording }}</p>
+                    <p>{{ question.user.username }} |
+                        {% for role in question.user.roles %}
+                            {{ role }}
+                        {% endfor %}</p>
                     <br>
                     {% for answer in answers %}
                         {% if question.id == answer.question.id %}
                             <article class="answer">
-                                <p>{{ answer.profil.username }} | {{ answer.createdAt | date("m/d/Y") }}</p>
+                                <p>{{ answer.user.username }} | {{ answer.createdAt | date("m/d/Y") }}</p>
                                 <p>{{ answer.content }}</p>
                             </article>
                             <br>

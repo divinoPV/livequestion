@@ -14,17 +14,16 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-
-        for($i = 1; $i <= 158; $i++) {
+        for($i = 1; $i <= 74; $i++) {
             $question = new Question();
 
             $j = rand(1,5);
-            $g = rand(1,54);
+            $g = rand(1,24);
 
             try {
                 $question
-                    ->setCategory($this->getReference("category$j"))
-                    ->setProfil($this->getReference("profil$g"))
+                    ->setCategory($this->getReference("category-$j"))
+                    ->setUser($this->getReference("user-$g"))
                     ->setCreatedAt(new DateTime())
                     ->setTitle(Lorem::sentence($nbWords = 6, $variableNbWords = true)." ?")
                     ->setVisibility(Question::VISIBILITY_PUBLIC);
@@ -34,7 +33,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist($question);
 
-            $this->addReference("question$i", (object)$question);
+            $this->addReference("question-$i", $question);
         }
 
         $manager->flush();
@@ -44,7 +43,7 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             CategoryFixtures::class,
-            ProfilFixtures::Class
+            UserFixtures::Class
         ];
     }
 }
