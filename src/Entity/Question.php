@@ -19,36 +19,36 @@ class Question
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="no_question", type="integer")
+     * @ORM\Column(type="integer")
      */
     private int $id;
 
     /**
-     * @ORM\Column(name="title_question", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private string $title;
 
     /**
-     * @ORM\Column(name="created_at_question", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     private DateTimeInterface $createdAt;
 
     /**
-     * @ORM\Column(name="visibility_question", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private string $visibility = self::VISIBILITY_PUBLIC;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="questions")
-     * @ORM\JoinColumn(name="categ_question", nullable=false, referencedColumnName="no_categ")
+     * @ORM\JoinColumn(name="ref_category", nullable=false, referencedColumnName="id")
      */
     private Category $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="questions")
-     * @ORM\JoinColumn(name="profil_question", nullable=false, referencedColumnName="id_prof")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="questions")
+     * @ORM\JoinColumn(name="ref_user", nullable=false, referencedColumnName="id")
      */
-    private Profil $profil;
+    private User $user;
 
     /**
      * @ORM\OneToMany(targetEntity=Concern::class, mappedBy="question")
@@ -157,20 +157,20 @@ class Question
     }
 
     /**
-     * @return Profil|null
+     * @return User|null
      */
-    public function getProfil(): ?Profil
+    public function getUser(): ?User
     {
-        return $this->profil;
+        return $this->user;
     }
 
     /**
-     * @param Profil $profil
+     * @param User $user
      * @return $this
      */
-    public function setProfil(Profil $profil): self
+    public function setUser(User $user): self
     {
-        $this->profil = $profil;
+        $this->user = $user;
 
         return $this;
     }

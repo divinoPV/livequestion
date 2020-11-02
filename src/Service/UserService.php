@@ -2,10 +2,10 @@
 
 namespace App\Service;
 
-use App\Entity\Profil;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 
-class ProfilService
+class UserService
 {
     /**
      * @var EntityManagerInterface
@@ -26,6 +26,6 @@ class ProfilService
      */
     public function getFullProfil(): ?array
     {
-        return $this->em->getRepository(Profil::class)->findAll();
+        return $this->em->getRepository(User::class)->findAll();
     }
 }

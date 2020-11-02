@@ -2,64 +2,100 @@
 
 namespace App\Entity;
 
-use App\Repository\ProfilRepository;
+use App\Repository\UserRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+//use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Exception;
 
 /**
- * @ORM\Entity(repositoryClass=ProfilRepository::class)
+ * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class Profil
+class User implements UserInterface
 {
-    const GENDER_MAN = 'man';
-    const GENDER_WOMAN = 'woman';
-    const GENDER_NON_BINARY = 'non_binary';
+    const ROLE_SUPER_ADMIN = "ROLE_SUPER_ADMIN";
+    const ROLE_ADMIN = "ROLE_ADMIN";
+    const ROLE_USER = "ROLE_USER";
+
+    const GENDER_MAN = "MALE";
+    const GENDER_WOMAN = "FEMALE";
+    const GENDER_NON_BINARY = "NON_BINARY";
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id_prof", type="integer")
+     * @ORM\Column(type="integer")
      */
-    private int $id;
+    private ?int $id = null;
 
     /**
-     * @ORM\Column(name="username_prof", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private string $username;
 
     /**
-     * @ORM\Column(name="password_prof", type="string", length=255)
-     */
-    private string $password;
-
-    /**
-     * @var string
-     * Do not put in base (clear password)
-     */
-    private string $plain_password;
-
-    /**
-     * @ORM\Column(name="email_prof", type="string", length=255)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private string $email;
 
     /**
-     * @ORM\Column(name="gender_prof", type="string", length=255)
+     * @ORM\Column(type="json")
      */
-    private string $gender;
+    private array $roles = [];
 
     /**
-     * @ORM\Column(name="image_prof", type="string", length=255)
+     * @var string|null
+     */
+    private ?string $plainPassword = null;
+
+    /**
+     * @var string The hashed plainPassword
+     * @ORM\Column(type="string")
+     */
+    private string $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
      */
     private string $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Role::class, inversedBy="profil")
-     * @ORM\JoinColumn(name="ref_role", nullable=false, referencedColumnName="id_role")
+     * @ORM\Column(type="string", length=255)
      */
-    private Role $role;
+    private string $gender;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $activation_token = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $reset_token = null;
+
+    /**
+     * @var DateTime $createdAt
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private DateTime $createdAt;
+
+    /**
+     * @var DateTime $updatedAt
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private DateTime $updatedAt;
+
+    //private UserPasswordEncoder $encoder;
 
     /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="profil")
@@ -99,11 +135,14 @@ class Profil
         $this->linksSender = new ArrayCollection();
         $this->linksReceiver = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        //$this->encoder = new UserPasswordEncoder();
     }
 
-    /**
-     * @return int|null
-     */
+    public function __toString()
+    {
+        return $this->email;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -128,61 +167,104 @@ class Profil
         return $this;
     }
 
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
     /**
-     * @return string|null
+     * A visual identifier that represents this user.
+     * @see UserInterface
+     */
+    public function getUsernameEmail(): ?string
+    {
+        return (string) $this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): ?array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        if ($roles === null)
+        {
+            $roles[] = 'ROLE_USER';
+        }
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @param string $role
+     * @return $this
+     * @throws Exception
+     */
+    public function addRole(string $role): self
+    {
+        if ($role !== self::ROLE_USER
+            && $role !== self::ROLE_ADMIN
+            && $role !== self::ROLE_SUPER_ADMIN)
+        {
+            throw new Exception('The code is not valid.');
+        }
+        $this->roles[] = $role;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
+        $this->setPassword($plainPassword);
+        //$this->register($this->encoder);
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
      */
     public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    /**
-     * @param string $password
-     * @return $this
-     */
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        $this->password = (string)password_hash($password, PASSWORD_ARGON2I);
 
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getPlainPassword(): ?string
+    public function register(UserPasswordEncoderInterface $encoder)
     {
-        return $this->plain_password;
-    }
+        $encoded = $encoder->encodePassword($this, $this->plainPassword);
 
-    /**
-     * @param string $plain_password
-     * @return $this
-     */
-    public function setPlainPassword(string $plain_password): self
-    {
-        $this->plain_password = $plain_password;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     * @return $this
-     */
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
+        $this->setPassword($encoded);
     }
 
     /**
@@ -193,14 +275,24 @@ class Profil
         return $this->gender;
     }
 
+    public function setGender(string $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
     /**
      * @param string $gender
      * @return $this
      * @throws Exception
      */
-    public function setGender(string $gender): self
+    public function addGender(string $gender): self
     {
-        if ($gender !== self::GENDER_MAN && $gender !== self::GENDER_WOMAN && $gender !== self::GENDER_NON_BINARY) {
+        if ($gender !== self::GENDER_MAN
+            && $gender !== self::GENDER_WOMAN
+            && $gender !== self::GENDER_NON_BINARY)
+        {
             throw new Exception('The code is not valid.');
         }
 
@@ -229,22 +321,53 @@ class Profil
     }
 
     /**
-     * @return Role|null
+     * @see UserInterface
      */
-    public function getRole(): ?Role
+    public function getSalt(): void
     {
-        return $this->role;
+        // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
     /**
-     * @param Role $role
-     * @return $this
+     * @see UserInterface
      */
-    public function setRole(Role $role): self
+    public function eraseCredentials(): void
     {
-        $this->role = $role;
+        $this->plainPassword = null;
+    }
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activation_token;
+    }
+
+    public function setActivationToken(?string $activation_token): self
+    {
+        $this->activation_token = $activation_token;
 
         return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->reset_token;
+    }
+
+    public function setResetToken(?string $reset_token): self
+    {
+        $this->reset_token = $reset_token;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): ?DateTime
+    {
+        return $this->updatedAt;
     }
 
     /**
@@ -259,7 +382,7 @@ class Profil
     {
         if (!$this->questions->contains($question)) {
             $this->questions[] = $question;
-            $question->setProfil($this);
+            $question->setUser($this);
         }
 
         return $this;
@@ -270,8 +393,8 @@ class Profil
         if ($this->questions->contains($question)) {
             $this->questions->removeElement($question);
             // set the owning side to null (unless already changed)
-            if ($question->getProfil() === $this) {
-                $question->setProfil(null);
+            if ($question->getUser() === $this) {
+                $question->setUser(null);
             }
         }
 
@@ -290,7 +413,7 @@ class Profil
     {
         if (!$this->concerns->contains($concern)) {
             $this->concerns[] = $concern;
-            $concern->setProfil($this);
+            $concern->setUser($this);
         }
 
         return $this;
@@ -301,8 +424,8 @@ class Profil
         if ($this->concerns->contains($concern)) {
             $this->concerns->removeElement($concern);
             // set the owning side to null (unless already changed)
-            if ($concern->getProfil() === $this) {
-                $concern->setProfil(null);
+            if ($concern->getUser() === $this) {
+                $concern->setUser(null);
             }
         }
 
@@ -321,7 +444,7 @@ class Profil
     {
         if (!$this->answers->contains($answer)) {
             $this->answers[] = $answer;
-            $answer->setProfil($this);
+            $answer->setUser($this);
         }
 
         return $this;
@@ -332,8 +455,8 @@ class Profil
         if ($this->answers->contains($answer)) {
             $this->answers->removeElement($answer);
             // set the owning side to null (unless already changed)
-            if ($answer->getProfil() === $this) {
-                $answer->setProfil(null);
+            if ($answer->getUser() === $this) {
+                $answer->setUser(null);
             }
         }
 
@@ -414,7 +537,7 @@ class Profil
     {
         if (!$this->likes->contains($like)) {
             $this->likes[] = $like;
-            $like->setProfil($this);
+            $like->setUser($this);
         }
 
         return $this;
@@ -425,8 +548,8 @@ class Profil
         if ($this->likes->contains($like)) {
             $this->likes->removeElement($like);
             // set the owning side to null (unless already changed)
-            if ($like->getProfil() === $this) {
-                $like->setProfil(null);
+            if ($like->getUser() === $this) {
+                $like->setUser(null);
             }
         }
 

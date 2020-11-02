@@ -20,7 +20,7 @@ class CategoryFixtures extends Fixture
 
             $manager->persist($category);
 
-            $this->addReference("category$i", (object)$category);
+            $this->addReference("category-$i", $category);
         }
 
         $manager->flush();

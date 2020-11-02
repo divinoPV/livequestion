@@ -15,12 +15,12 @@ class Category
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="no_categ", type="integer")
+     * @ORM\Column(type="integer")
      */
     private int $id;
 
     /**
-     * @ORM\Column(name="wording_categ", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private string $wording;
 

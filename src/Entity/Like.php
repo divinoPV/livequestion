@@ -14,15 +14,15 @@ class Like
 {
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity=Profil::class, inversedBy="likes")
-     * @ORM\JoinColumn(name="ref_profil", nullable=false, referencedColumnName="id_prof")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="likes")
+     * @ORM\JoinColumn(name="ref_user", nullable=false, referencedColumnName="id")
      */
-    private Profil $profil;
+    private User $user;
 
     /**
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="likes")
-     * @ORM\JoinColumn(name="ref_question", nullable=false, referencedColumnName="no_question")
+     * @ORM\JoinColumn(name="ref_question", nullable=false, referencedColumnName="id")
      */
     private Question $question;
 
@@ -31,14 +31,14 @@ class Like
      */
     private DateTimeInterface $createdAt;
 
-    public function getProfil(): ?Profil
+    public function getUser(): ?User
     {
-        return $this->profil;
+        return $this->user;
     }
 
-    public function setProfil(Profil $profil): self
+    public function setUser(User $user): self
     {
-        $this->profil = $profil;
+        $this->user = $user;
 
         return $this;
     }
