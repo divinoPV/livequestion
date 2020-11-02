@@ -9,7 +9,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-//use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Exception;
@@ -135,7 +134,6 @@ class User implements UserInterface
         $this->linksSender = new ArrayCollection();
         $this->linksReceiver = new ArrayCollection();
         $this->likes = new ArrayCollection();
-        //$this->encoder = new UserPasswordEncoder();
     }
 
     public function __toString()
@@ -239,8 +237,6 @@ class User implements UserInterface
     public function setPlainPassword(string $plainPassword): self
     {
         $this->plainPassword = $plainPassword;
-        $this->setPassword($plainPassword);
-        //$this->register($this->encoder);
 
         return $this;
     }
@@ -260,7 +256,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function register(UserPasswordEncoderInterface $encoder)
+    public function encoderPassword(UserPasswordEncoderInterface $encoder)
     {
         $encoded = $encoder->encodePassword($this, $this->plainPassword);
 
