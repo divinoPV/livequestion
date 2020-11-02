@@ -1,36 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/UserAuthenticator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/livequestion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/livequestion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="build(login): login and logout, user entity, refactor all entity and fixtures">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InstanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InstanceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AnswerFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AnswerFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/CategoryFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/CategoryFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ProfilFixtures.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/QuestionFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/QuestionFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Answer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Answer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Concern.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Concern.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Like.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Link.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Profil.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Role.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ProfilService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/instance/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instance/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +170,7 @@
       <workItem from="1602572690258" duration="2895000" />
       <workItem from="1602610478050" duration="475000" />
       <workItem from="1604304492473" duration="1863000" />
-      <workItem from="1604311797017" duration="14844000" />
+      <workItem from="1604311797017" duration="17765000" />
     </task>
     <task id="LOCAL-00001" summary="init(global): init project and done entity, fixtures, controller and service">
       <created>1602521738526</created>
@@ -219,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602522656118</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="build(login): login and logout, user entity, refactor all entity and fixtures">
+      <created>1604330400783</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604330400846</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +208,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init(global): init project and done entity, fixtures, controller and service" />
-    <option name="LAST_COMMIT_MESSAGE" value="init(global): init project and done entity, fixtures, controller and service" />
+    <MESSAGE value="build(login): login and logout, user entity, refactor all entity and fixtures" />
+    <option name="LAST_COMMIT_MESSAGE" value="build(login): login and logout, user entity, refactor all entity and fixtures" />
   </component>
   <component name="WindowStateProjectService">
     <state x="593" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1602501904368">
@@ -238,14 +220,14 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="497" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.860@0.0.1600.860" timestamp="1604327820450" />
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604321217013">
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604332395934">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1604321217013" />
-    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1602522651927">
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1604332395934" />
+    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604331131240">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1602522651927" />
+    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1604331131240" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604312153757">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -262,10 +244,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1604328443521" />
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1602522668800">
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1604330438889">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1602522668800" />
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604330438889" />
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602521840611">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
