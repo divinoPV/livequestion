@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="build(login): login and logout, user entity, refactor all entity and fixtures">
+    <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Service/LinkService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/signup.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InstanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/instance/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +145,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/DataFixtures" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../private/portfolio/portfolio_v1.3" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -170,7 +174,10 @@
       <workItem from="1602572690258" duration="2895000" />
       <workItem from="1602610478050" duration="475000" />
       <workItem from="1604304492473" duration="1863000" />
-      <workItem from="1604311797017" duration="17765000" />
+      <workItem from="1604311797017" duration="18123000" />
+      <workItem from="1604346609701" duration="596000" />
+      <workItem from="1604652336111" duration="6585000" />
+      <workItem from="1604772239151" duration="596000" />
     </task>
     <task id="LOCAL-00001" summary="init(global): init project and done entity, fixtures, controller and service">
       <created>1602521738526</created>
@@ -200,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604330400846</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactor(encoder): password encoder">
+      <created>1604333386834</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604333386861</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,33 +223,34 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init(global): init project and done entity, fixtures, controller and service" />
     <MESSAGE value="build(login): login and logout, user entity, refactor all entity and fixtures" />
-    <option name="LAST_COMMIT_MESSAGE" value="build(login): login and logout, user entity, refactor all entity and fixtures" />
+    <MESSAGE value="refactor(encoder): password encoder" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(encoder): password encoder" />
   </component>
   <component name="WindowStateProjectService">
     <state x="593" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1602501904368">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="593" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1602501904368" />
-    <state x="497" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604327820450">
+    <state x="114" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604653734236">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="497" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.860@0.0.1600.860" timestamp="1604327820450" />
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604332395934">
+    <state x="114" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.860@0.0.1600.860" timestamp="1604653734236" />
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604677013904">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1604332395934" />
-    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604331131240">
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1604677013904" />
+    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604333383522">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1604331131240" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604312153757">
+    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1604333383522" />
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604657274553">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604312153757" />
-    <state x="603" y="156" key="NewPhpClassDialog" timestamp="1604316821110">
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604657274553" />
+    <state x="603" y="156" key="NewPhpClassDialog" timestamp="1604676987401">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="603" y="156" key="NewPhpClassDialog/0.0.1600.860@0.0.1600.860" timestamp="1604316821110" />
+    <state x="603" y="156" key="NewPhpClassDialog/0.0.1600.860@0.0.1600.860" timestamp="1604676987401" />
     <state x="301" y="75" key="SettingsEditor" timestamp="1602577606679">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -244,10 +259,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1604328443521" />
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1604330438889">
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1604333390115">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604330438889" />
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604333390115" />
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602521840611">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
