@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/LinkService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/signup.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InstanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/instance/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../private/portfolio/portfolio_v1.3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../wamp64/www/bts1/piscine3" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -177,7 +174,8 @@
       <workItem from="1604311797017" duration="18123000" />
       <workItem from="1604346609701" duration="596000" />
       <workItem from="1604652336111" duration="6585000" />
-      <workItem from="1604772239151" duration="596000" />
+      <workItem from="1604772239151" duration="797000" />
+      <workItem from="1604841360989" duration="6320000" />
     </task>
     <task id="LOCAL-00001" summary="init(global): init project and done entity, fixtures, controller and service">
       <created>1602521738526</created>
@@ -214,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604333386861</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="build(controller): add new controller and template">
+      <created>1604778530324</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604778530324</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +229,8 @@
     <MESSAGE value="init(global): init project and done entity, fixtures, controller and service" />
     <MESSAGE value="build(login): login and logout, user entity, refactor all entity and fixtures" />
     <MESSAGE value="refactor(encoder): password encoder" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(encoder): password encoder" />
+    <MESSAGE value="build(controller): add new controller and template" />
+    <option name="LAST_COMMIT_MESSAGE" value="build(controller): add new controller and template" />
   </component>
   <component name="WindowStateProjectService">
     <state x="593" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1602501904368">
@@ -239,14 +245,14 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1604677013904" />
-    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604333383522">
+    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604778527359">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1604333383522" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604657274553">
+    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1604778527359" />
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604858546345">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604657274553" />
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604858546345" />
     <state x="603" y="156" key="NewPhpClassDialog" timestamp="1604676987401">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -259,10 +265,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1604328443521" />
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1604333390115">
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1604778532778">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604333390115" />
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604778532778" />
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602521840611">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

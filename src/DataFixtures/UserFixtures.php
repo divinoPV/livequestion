@@ -21,14 +21,14 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        $gender = [User::GENDER_MAN, User::GENDER_WOMAN, User::GENDER_NON_BINARY];
+        $role = [User::ROLE_USER, User::ROLE_ADMIN, User::ROLE_SUPER_ADMIN];
+
         for ($i = 1; $i <= 24; $i++) {
             $user = new User();
             $faker =  Factory::create();
             $username = $faker->firstName;
-            $password = Lorem::word();
-
-            $gender = [User::GENDER_MAN, User::GENDER_WOMAN, User::GENDER_NON_BINARY];
-            $role = [User::ROLE_USER, User::ROLE_ADMIN, User::ROLE_SUPER_ADMIN];
+            $pwd = Lorem::word();
 
             $key = rand(0,2);
 
@@ -38,17 +38,31 @@ class UserFixtures extends Fixture
                 ->setEmail($username."@outlook.com")
                 ->setUsername($username)
                 ->setImage(Image::imageUrl($width = 640, $height = 480))
-                ->setPlainPassword($password);
+                ->setPlainPassword($pwd);
 
             $password = $this->passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
-
-            var_dump($user->getPlainPassword());
 
             $manager->persist($user);
 
             $this->addReference("user-$i", $user);
         }
+
+        $user2 = new User();
+        $pwd2 = "test";
+
+        $user2
+            ->addRole($role[2])
+            ->addGender($gender[0])
+            ->setEmail("test@outlook.com")
+            ->setUsername("test")
+            ->setImage(Image::imageUrl($width = 640, $height = 480))
+            ->setPlainPassword($pwd2);
+
+        $password2 = $this->passwordEncoder->encodePassword($user2, $user2->getPlainPassword());
+        $user2->setPassword($password2);
+
+        $manager->persist($user2);
 
         $manager->flush();
     }

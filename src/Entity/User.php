@@ -9,7 +9,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Exception;
 
@@ -93,8 +92,6 @@ class User implements UserInterface
      * @ORM\Column(type="datetime")
      */
     private DateTime $updatedAt;
-
-    //private UserPasswordEncoder $encoder;
 
     /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="profil")
@@ -251,16 +248,9 @@ class User implements UserInterface
 
     public function setPassword(string $password): self
     {
-        $this->password = (string)password_hash($password, PASSWORD_ARGON2I);
+        $this->password = $password;
 
         return $this;
-    }
-
-    public function encoderPassword(UserPasswordEncoderInterface $encoder)
-    {
-        $encoded = $encoder->encodePassword($this, $this->plainPassword);
-
-        $this->setPassword($encoded);
     }
 
     /**
