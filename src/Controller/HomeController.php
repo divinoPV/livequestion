@@ -13,21 +13,25 @@ use Symfony\Component\Routing\Annotation\Route;
 final class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="instance")
+     * @Route("/", name="home")
      * @param UserService $profilService
      * @param QuestionService $questionService
      * @param AnswerService $answerService
      * @param CategoryService $categoryService
      * @return Response
      */
-    public function index(UserService $profilService, QuestionService $questionService, AnswerService  $answerService, CategoryService $categoryService)
+    public function index(UserService $profilService,
+                          QuestionService $questionService,
+                          AnswerService  $answerService,
+                          CategoryService $categoryService): Response
     {
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'InstanceController',
             'profils' => $profilService->getFullProfil(),
             'questions' => $questionService->getFullQuestion(),
             'answers' => $answerService->getFullAnswer(),
-            'categories' => $categoryService->getFullCategory()
+            'categories' => $categoryService->getFullCategory(),
         ]);
     }
 }

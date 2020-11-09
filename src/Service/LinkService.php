@@ -24,7 +24,7 @@ class LinkService
     /**
      * @return array|null
      */
-    public function getFull(): ?array
+    public function getAll(): ?array
     {
         return $this->em
             ->getRepository(Link::class)
@@ -34,14 +34,16 @@ class LinkService
     /**
      * @param int $receiver
      * @param int $sender
+     * @param bool $isPending
      * @return array|null
      */
-    public function getApprovedFriend(int $receiver, int $sender): ?array
+    public function getLink(int $receiver, int $sender, bool $isPending): ?array
     {
         return $this->em
             ->getRepository(Link::class)
             ->findBy([],
+                ["ref_receiver" => $receiver],
                 ["ref_sender" => $sender],
-                ["ref_receiver" => $receiver]);
+                ["is_pending" => $isPending]);
     }
 }
