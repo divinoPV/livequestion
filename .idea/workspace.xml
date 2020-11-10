@@ -4,7 +4,8 @@
     <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LinkService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/LinkService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../private/portfolio/portfolio_v3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -175,7 +176,8 @@
       <workItem from="1604652336111" duration="6585000" />
       <workItem from="1604772239151" duration="797000" />
       <workItem from="1604841360989" duration="6383000" />
-      <workItem from="1604917642294" duration="10584000" />
+      <workItem from="1604917642294" duration="10689000" />
+      <workItem from="1604994812639" duration="20586000" />
     </task>
     <task id="LOCAL-00001" summary="init(global): init project and done entity, fixtures, controller and service">
       <created>1602521738526</created>
@@ -226,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604859767886</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feature(friend): add friend">
+      <created>1604957887187</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604957887188</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +247,8 @@
     <MESSAGE value="refactor(encoder): password encoder" />
     <MESSAGE value="build(controller): add new controller and template" />
     <MESSAGE value="fix(login): connection bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(login): connection bug fix" />
+    <MESSAGE value="feature(friend): add friend" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature(friend): add friend" />
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="108" key="#Inspections" timestamp="1604956745905">
@@ -257,22 +267,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="114" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.860@0.0.1600.860" timestamp="1604653734236" />
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604954015622">
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605003126320">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1604954015622" />
-    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604859764104">
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1605003126320" />
+    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604957882546">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1604859764104" />
+    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1604957882546" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604950952663">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604950952663" />
-    <state x="603" y="156" key="NewPhpClassDialog" timestamp="1604676987401">
+    <state x="603" y="156" key="NewPhpClassDialog" timestamp="1604995068975">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="603" y="156" key="NewPhpClassDialog/0.0.1600.860@0.0.1600.860" timestamp="1604676987401" />
+    <state x="603" y="156" key="NewPhpClassDialog/0.0.1600.860@0.0.1600.860" timestamp="1604995068975" />
     <state x="301" y="75" key="SettingsEditor" timestamp="1602577606679">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -281,17 +291,17 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1604328443521" />
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1604859771841">
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1604957891807">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604859771841" />
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604957891807" />
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602521840611">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1602521840611" />
-    <state x="456" y="199" key="run.anything.popup" timestamp="1604324539293">
+    <state x="456" y="199" key="run.anything.popup" timestamp="1605003043249">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="199" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1604324539293" />
+    <state x="456" y="199" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1605003043249" />
   </component>
 </project>

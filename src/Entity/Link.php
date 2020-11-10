@@ -27,7 +27,7 @@ class Link
     /**
      * @ORM\Column(type="boolean")
      */
-    private bool $isPending;
+    private bool $isPending = true;
 
     public function getSender(): ?User
     {
