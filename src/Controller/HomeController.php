@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Link;
 use App\Entity\User;
+use App\Feature\Friend;
 use App\Service\AnswerService;
 use App\Service\CategoryService;
 use App\Service\UserService;
@@ -22,6 +22,7 @@ final class HomeController extends AbstractController
      * @param QuestionService $questionService
      * @param AnswerService $answerService
      * @param CategoryService $categoryService
+     * @param Friend $friend
      * @param EntityManagerInterface $manager
      * @param Request $request
      * @return Response
@@ -30,10 +31,11 @@ final class HomeController extends AbstractController
                           QuestionService $questionService,
                           AnswerService  $answerService,
                           CategoryService $categoryService,
+                          Friend $friend,
                           EntityManagerInterface $manager,
                           Request $request): Response
     {
-        $message = '';
+        $addFriend = '';
 
         if ($request->getMethod() == 'POST') {
             $targetUser = $manager->getRepository(User::class)
@@ -41,32 +43,7 @@ final class HomeController extends AbstractController
             $connectedUser = $manager->getRepository(User::class)
                 ->find($request->request->get("sender"));
 
-            $links = $manager->getRepository(Link::class);
-
-            $criteria = ['receiver' => $targetUser->getId(), 'sender' => $connectedUser->getId()];
-            $criteria2 = ['receiver' => $connectedUser->getId(), 'sender' => $targetUser->getId()];
-
-            $invit = $links->FindOneby($criteria);
-            $request = $links->FindOneby($criteria2);
-
-            if ($targetUser->getId() === $connectedUser->getId()) {
-                $message = "Vous ne pouvez pas vous ajoutez vous-même !";
-            }
-            else {
-                if (empty($invit) && empty($request))
-                {
-                    $link = new Link();
-                    $link->setReceiver($targetUser)
-                        ->setSender($connectedUser);
-
-                    $manager->persist($link);
-                    $manager->flush();
-
-                    $message = "Invitations bien envoyé !";
-                } else {
-                    $message = "Vous êtes déjà ami !";
-                }
-            }
+            $addFriend = $friend->addFriend($targetUser, $connectedUser);
         }
 
         return $this->render('home/index.html.twig', [
@@ -74,7 +51,7 @@ final class HomeController extends AbstractController
             'questions' => $questionService->getFullQuestion(),
             'answers' => $answerService->getFullAnswer(),
             'categories' => $categoryService->getFullCategory(),
-            'message' => $message
+            'addFriend' => $addFriend
         ]);
     }
 }

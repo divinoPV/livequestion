@@ -4,7 +4,7 @@
 
 {% block body %}
     <header>
-        {{ message }}
+        {{ addFriend }}
         <h1>Live Questions</h1>
         <nav>
             <h3>NAVBAR</h3>
@@ -30,17 +30,19 @@
                             {{ role }}
                         {% endfor %}
                         son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <div class="form-item">
-                                <input type="hidden" name="sender" value="{{ app.user.id }}">
+                    {% if app.user.id is defined %}
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <div class="form-item">
+                                    <input type="hidden" name="sender" value="{{ app.user.id }}">
+                                </div>
+                                <div class="form-item">
+                                    <input type="hidden" name="receiver" value="{{ profil.id }}">
+                                </div>
+                                <button class="btn btn-primary" type="submit">Envoyer</button>
                             </div>
-                            <div class="form-item">
-                                <input type="hidden" name="receiver" value="{{ profil.id }}">
-                            </div>
-                            <button class="btn btn-primary" type="submit">Envoyer</button>
-                        </div>
-                    </form>
+                        </form>
+                    {% endif %}
                     <br>
                 </div>
             {% endfor %}

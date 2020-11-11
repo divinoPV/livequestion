@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Feature/Friend.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Link.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +17,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -241,6 +246,16 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init(global): init project and done entity, fixtures, controller and service" />
     <MESSAGE value="build(login): login and logout, user entity, refactor all entity and fixtures" />
@@ -267,10 +282,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="114" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.860@0.0.1600.860" timestamp="1604653734236" />
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605003126320">
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605113929839">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1605003126320" />
+    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1605113929839" />
     <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604957882546">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -279,10 +294,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1604950952663" />
-    <state x="603" y="156" key="NewPhpClassDialog" timestamp="1604995068975">
+    <state x="603" y="156" key="NewPhpClassDialog" timestamp="1605113837526">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="603" y="156" key="NewPhpClassDialog/0.0.1600.860@0.0.1600.860" timestamp="1604995068975" />
+    <state x="603" y="156" key="NewPhpClassDialog/0.0.1600.860@0.0.1600.860" timestamp="1605113837526" />
     <state x="301" y="75" key="SettingsEditor" timestamp="1602577606679">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
