@@ -3,7 +3,7 @@
 {% block title %}Instance{% endblock %}
 
 {% block body %}
-    {{ addFriend }}
+    {% if message is defined %}{{ message }}{% endif %}
     <h1>Live Questions</h1>
     <nav>
         <h3>NAVBAR</h3>
@@ -28,7 +28,7 @@
                     {% endfor %}
                     son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
                 {% if app.user.id is defined %}
-                    <form action="#" method="POST">
+                    <form action="{{ path('addFriend') }}" method="POST">
                         <div class="form-group">
                             <div class="form-item">
                                 <input type="hidden" name="sender" value="{{ app.user.id }}">
@@ -36,7 +36,7 @@
                             <div class="form-item">
                                 <input type="hidden" name="receiver" value="{{ profil.id }}">
                             </div>
-                            <button class="btn btn-primary" type="submit">Envoyer</button>
+                            <input class="btn btn-primary" type="submit" value="Envoyer"/>
                         </div>
                     </form>
                 {% endif %}

@@ -2,44 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/pdp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/i1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/i2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/i3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/iplay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/links.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/persona1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/persona2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/persona3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/comment.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/equal.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/find.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/gender.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/google-place.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/grid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/hat.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/svg/style.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/livequestion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/livequestion.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605114597713</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="build(home): import public files, update twig base, create nav and footer">
+      <created>1605115959861</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605115959861</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +277,8 @@
     <MESSAGE value="fix(login): connection bug fix" />
     <MESSAGE value="feature(friend): add friend" />
     <MESSAGE value="refactor(friend): create feature folder and clean HomController" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(friend): create feature folder and clean HomController" />
+    <MESSAGE value="build(home): import public files, update twig base, create nav and footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="build(home): import public files, update twig base, create nav and footer" />
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="108" key="#Inspections" timestamp="1604956745905">
@@ -329,10 +301,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1605113929839" />
-    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1605114594765">
+    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1605115956708">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1605114594765" />
+    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1605115956708" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604950952663">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -345,21 +317,21 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1602577606679" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1604328443521">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1605117080397">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1604328443521" />
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1605114600321">
+    <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1605117080397" />
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1605115962042">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1605114600321" />
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1605115962042" />
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602521840611">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1602521840611" />
-    <state x="456" y="199" key="run.anything.popup" timestamp="1605003043249">
+    <state x="456" y="199" key="run.anything.popup" timestamp="1605116816401">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="199" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1605003043249" />
+    <state x="456" y="199" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1605116816401" />
   </component>
 </project>
