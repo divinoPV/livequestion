@@ -3,73 +3,69 @@
 {% block title %}Instance{% endblock %}
 
 {% block body %}
-    <header>
-        {{ addFriend }}
-        <h1>Live Questions</h1>
-        <nav>
-            <h3>NAVBAR</h3>
-            <ul>
-                <li>
-                    <a href="#user">USERS</a>
-                </li>
-                <li>
-                    <a href="#question">QUESTIONS</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="user">
-            <h3>USERS</h3>
-            {% for profil in profils %}
-                <div class="user">
-                    <p><img style="height: 90px; width: 90px;" src="{{ profil.image }}"
-                            alt="Image aléatoire.">L'utilisateur
-                        {{ profil.username }} est un.e
-                        {% for role in profil.roles %}
-                            {{ role }}
-                        {% endfor %}
-                        son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
-                    {% if app.user.id is defined %}
-                        <form action="#" method="POST">
-                            <div class="form-group">
-                                <div class="form-item">
-                                    <input type="hidden" name="sender" value="{{ app.user.id }}">
-                                </div>
-                                <div class="form-item">
-                                    <input type="hidden" name="receiver" value="{{ profil.id }}">
-                                </div>
-                                <button class="btn btn-primary" type="submit">Envoyer</button>
-                            </div>
-                        </form>
-                    {% endif %}
-                    <br>
-                </div>
-            {% endfor %}
-        </section>
-        <section id="question">
-            <h3>QUESTIONS</h3>
-            {% for question in questions %}
-                <article class="question">
-                    <h5>{{ question.title }}</h5>
-                    <p>{{ question.category.wording }} | {{ question.createdAt | date("m/d/Y") }}</p>
-                    <p>{{ question.user.username }} |
-                        {% for role in question.user.roles %}
-                            {{ role }}
-                        {% endfor %}</p>
-                    <br>
-                    {% for answer in answers %}
-                        {% if question.id == answer.question.id %}
-                            <article class="answer">
-                                <p>{{ answer.user.username }} | {{ answer.createdAt | date("m/d/Y") }}</p>
-                                <p>{{ answer.content }}</p>
-                            </article>
-                            <br>
-                        {% endif %}
+    {{ addFriend }}
+    <h1>Live Questions</h1>
+    <nav>
+        <h3>NAVBAR</h3>
+        <ul>
+            <li>
+                <a href="#user">USERS</a>
+            </li>
+            <li>
+                <a href="#question">QUESTIONS</a>
+            </li>
+        </ul>
+    </nav>
+    <section id="user">
+        <h3>USERS</h3>
+        {% for profil in profils %}
+            <div class="user">
+                <p><img style="height: 90px; width: 90px;" src="{{ profil.image }}"
+                        alt="Image aléatoire.">L'utilisateur
+                    {{ profil.username }} est un.e
+                    {% for role in profil.roles %}
+                        {{ role }}
                     {% endfor %}
-                </article>
-                <hr style="border-bottom: 1px solid #000; width: 100%;">
-            {% endfor %}
-        </section>
-    </main>
+                    son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
+                {% if app.user.id is defined %}
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <div class="form-item">
+                                <input type="hidden" name="sender" value="{{ app.user.id }}">
+                            </div>
+                            <div class="form-item">
+                                <input type="hidden" name="receiver" value="{{ profil.id }}">
+                            </div>
+                            <button class="btn btn-primary" type="submit">Envoyer</button>
+                        </div>
+                    </form>
+                {% endif %}
+                <br>
+            </div>
+        {% endfor %}
+    </section>
+    <section id="question">
+        <h3>QUESTIONS</h3>
+        {% for question in questions %}
+            <article class="question">
+                <h5>{{ question.title }}</h5>
+                <p>{{ question.category.wording }} | {{ question.createdAt | date("m/d/Y") }}</p>
+                <p>{{ question.user.username }} |
+                    {% for role in question.user.roles %}
+                        {{ role }}
+                    {% endfor %}</p>
+                <br>
+                {% for answer in answers %}
+                    {% if question.id == answer.question.id %}
+                        <article class="answer">
+                            <p>{{ answer.user.username }} | {{ answer.createdAt | date("m/d/Y") }}</p>
+                            <p>{{ answer.content }}</p>
+                        </article>
+                        <br>
+                    {% endif %}
+                {% endfor %}
+            </article>
+            <hr style="border-bottom: 1px solid #000; width: 100%;">
+        {% endfor %}
+    </section>
 {% endblock %}

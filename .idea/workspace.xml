@@ -2,9 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Feature/Friend.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/pdp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/bg2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/i1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/i2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/i3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/iplay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/links.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/marque7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/persona1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/persona2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/persona3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/ressources/step-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/calendar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/comment.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/equal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/find.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/gender.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/google-place.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/grid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/hat.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/star.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/svg/style.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/livequestion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/livequestion.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,18 +182,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\iwn\bts2\livequestion\public" />
       <recent name="D:\iwn\bts2\livequestion\src\DataFixtures" />
       <recent name="D:\iwn\bts2\livequestion\src" />
       <recent name="D:\iwn\bts2\livequestion\src\Repository" />
       <recent name="D:\iwn\bts2\livequestion\src\Entity" />
-      <recent name="D:\iwn\bts2\livequestion\src\Controller" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -240,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604957887188</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="refactor(friend): create feature folder and clean HomController">
+      <created>1605114597713</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605114597713</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +305,8 @@
     <MESSAGE value="build(controller): add new controller and template" />
     <MESSAGE value="fix(login): connection bug fix" />
     <MESSAGE value="feature(friend): add friend" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature(friend): add friend" />
+    <MESSAGE value="refactor(friend): create feature folder and clean HomController" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(friend): create feature folder and clean HomController" />
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="108" key="#Inspections" timestamp="1604956745905">
@@ -286,10 +329,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1605113929839" />
-    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1604957882546">
+    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1605114594765">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1604957882546" />
+    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1605114594765" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1604950952663">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -306,10 +349,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1604328443521" />
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1604957891807">
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2" timestamp="1605114600321">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1604957891807" />
+    <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1605114600321" />
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602521840611">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
