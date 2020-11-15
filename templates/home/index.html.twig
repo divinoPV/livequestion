@@ -3,69 +3,331 @@
 {% block title %}Instance{% endblock %}
 
 {% block body %}
-    {% if message is defined %}{{ message }}{% endif %}
-    <h1>Live Questions</h1>
-    <nav>
-        <h3>NAVBAR</h3>
-        <ul>
-            <li>
-                <a href="#user">USERS</a>
-            </li>
-            <li>
-                <a href="#question">QUESTIONS</a>
-            </li>
-        </ul>
-    </nav>
-    <section id="user">
-        <h3>USERS</h3>
-        {% for profil in profils %}
-            <div class="user">
-                <p><img style="height: 90px; width: 90px;" src="{{ profil.image }}"
-                        alt="Image aléatoire.">L'utilisateur
-                    {{ profil.username }} est un.e
-                    {% for role in profil.roles %}
-                        {{ role }}
-                    {% endfor %}
-                    son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
-                {% if app.user.id is defined %}
-                    <form action="{{ path('addFriend') }}" method="POST">
-                        <div class="form-group">
-                            <div class="form-item">
-                                <input type="hidden" name="sender" value="{{ app.user.id }}">
-                            </div>
-                            <div class="form-item">
-                                <input type="hidden" name="receiver" value="{{ profil.id }}">
-                            </div>
-                            <input class="btn btn-primary" type="submit" value="Envoyer"/>
-                        </div>
-                    </form>
-                {% endif %}
-                <br>
+    <div class="hp-top">
+        <div class="hp-top-group">
+            <div class="hp-top-group-text">
+                <div class="hp-top-title">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="hp-top-text">
+                    <p>Suspendisse sagittis nisl nisi, et fringilla ipsum
+                        lobortis sed. Maecenas at maximus ante. Duis mattis,
+                        nisi vel sagittis faucibus, neque mauris iaculis
+                        augue, ac feugiat est dolor fermentum est. Ut vitae
+                        vehicula tortor.</p>
+                </div>
+                <div class="hp-top-button">
+                    <button type="button" class="btn-cta">Bouton CTA</button>
+                </div>
             </div>
-        {% endfor %}
-    </section>
-    <section id="question">
-        <h3>QUESTIONS</h3>
-        {% for question in questions %}
-            <article class="question">
-                <h5>{{ question.title }}</h5>
-                <p>{{ question.category.wording }} | {{ question.createdAt | date("m/d/Y") }}</p>
-                <p>{{ question.user.username }} |
-                    {% for role in question.user.roles %}
-                        {{ role }}
-                    {% endfor %}</p>
-                <br>
-                {% for answer in answers %}
-                    {% if question.id == answer.question.id %}
-                        <article class="answer">
-                            <p>{{ answer.user.username }} | {{ answer.createdAt | date("m/d/Y") }}</p>
-                            <p>{{ answer.content }}</p>
-                        </article>
-                        <br>
-                    {% endif %}
-                {% endfor %}
-            </article>
-            <hr style="border-bottom: 1px solid #000; width: 100%;">
-        {% endfor %}
-    </section>
+            <div class="hp-top-img">
+                <img src="{{ asset('images/ressources/step-1.png') }}"
+                     alt="image page inscription/connexion"/></div>
+            <div class="clear"></div>
+        </div>
+        <div class="hp-top-clip-path-rose-polygon"></div>
+        <div class="hp-top-clip-path-sous-rose-circle"></div>
+        <div class="hp-top-clip-path-sous-rose-polygon"></div>
+        <div class="hp-top-clip-path-sous-rose-ellipse"></div>
+        <div class="hp-top-clip-path-rose-ellipse"></div>
+        <div class="hp-top-clip-path-rose-ellipse-2"></div>
+    </div>
+    <div class="hp-top-item-group">
+        <div class="hp-top-item">
+            <div class="hp-top-item-icon">
+                <img src='{{ asset("images/ressources/i1.png") }}'
+                     alt="Ressources item 1 png"/>
+            </div>
+            <div class="hp-top-item-title">
+                <p>Suits Your Style</p>
+            </div>
+            <div class="hp-top-item-text">
+                <p>Donec sollicitudin velit quis mauris convallis,
+                    et tempus lectus suscipit. Mauris ultricies
+                    ante eu enim semper iaculis. Etiam viverra
+                    sodales tincidunt. Sed sit amet quam aliquam,
+                    condimentum quam ac, eleifend tortor.</p>
+            </div>
+        </div>
+        <div class="hp-top-item">
+            <div class="hp-top-item-icon">
+                <img src='{{ asset("images/ressources/i2.png") }}'
+                     alt="Ressources item 2 png"/>
+            </div>
+            <div class="hp-top-item-title">
+                <p>Ut posuere molestie</p>
+            </div>
+            <div class="hp-top-item-text">
+                <p>In nec elit eget eros ultrices pulvinar
+                    vel vitae arcu. In hac habitasse platea
+                    dictumst. Donec eget diam aliquet, luctus
+                    massa aliquet, pretium libero.</p>
+            </div>
+        </div>
+        <div class="hp-top-item">
+            <div class="hp-top-item-icon">
+                <img src='{{ asset("images/ressources/i3.png") }}'
+                     alt="Ressources item 3 png"/>
+            </div>
+            <div class="hp-top-item-title">
+                <p>Vestibulum ut erat consectetur</p>
+            </div>
+            <div class="hp-top-item-text">
+                <p>Vestibulum ultrices est in felis
+                    luctus congue. Pellentesque sollicitudin
+                    est orci, eget pharetra nulla cursus nec.
+                    Quisque sed diam ut nisi porttitor varius.
+                    Integer id semper odio, viverra pretium leo.
+                    Duis quis ante ac augue pharetra
+                    euismod in in dui.</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="hp-lien">
+        <div class="hp-lien-top-group">
+            <div class="hp-lien-top-title">
+                <p>Aenean magna odio</p>
+            </div>
+            <div class="hp-lien-top-text">
+                <p>Ut sed venenatis neque. Donec eu est
+                    pellentesque, facilisis arcu eget,
+                    commodo tellus. Vivamus vitae nibh sit
+                    amet diam lobortis tempus eu ac enim.
+                    Vestibulum quis tellus nibh. Donec pharetra
+                    malesuada augue.</p>
+            </div>
+        </div>
+        <div class="hp-lien-group">
+            <div class="hp-lien-group-lien">
+                <div class="hp-lien-item">
+                    <button id="btn-link-1" type="button">Lien 1</button>
+                </div>
+                <div class="hp-lien-item">
+                    <button id="btn-link-2" type="button">Lien 2</button>
+                </div>
+                <div class="hp-lien-item">
+                    <button id="btn-link-3" type="button">Lien 3</button>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="hp-lien-group-bot" id="hp-lien-0">
+                <div class="hp-lien-container">
+                    <div class="hp-lien-img">
+                        <img src="{{ asset("images/ressources/step-2.jpg") }}"
+                             alt="Ressources step 2 jpg"/>
+                    </div>
+                    <div class="hp-lien-content">
+                        <div class="hp-lien-content-title">
+                            <p>Praesent vitae velit tristique
+                                <span class='hp-lien-underline'>old alos</span></p>
+                        </div>
+                        <div class="hp-lien-content-text">
+                            <p>Proin commodo faucibus ligula, quis commodo eros
+                                tristique sit amet. Vivamus vel nibh et nibh lobortis
+                                feugiat nec a libero. Proin vulputate consectetur felis.</p>
+                        </div>
+                        <div class="hp-lien-content-comment-group">
+                            <div class="hp-lien-content-avatar">
+                                <img src="{{ asset("images/ressources/persona3.jpg") }}"
+                                     alt="Ressources persona 3 jpg"/>
+                            </div>
+                            <div class="hp-lien-content-comment">
+                                <p>Etiam vulputate est libero. Curabitur semper
+                                    mauris nisi, quis posuere lorem bibendum fringilla.</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hp-lien-group-bot" id="hp-lien-1">
+                <div class="hp-lien-container">
+                    <div class="hp-lien-img">
+                        <img src="{{ asset("images/ressources/step-3.jpg") }}"
+                             alt="Ressources step 3 jpg"/>
+                    </div>
+                    <div class="hp-lien-content">
+                        <div class="hp-lien-content-title">
+                            <p>Donec suscipit, tortor eget
+                                <span class='hp-lien-underline'>dapibus laoreet</span>
+                        </div>
+                        <div class="hp-lien-content-text">
+                            <p>Pellentesque eget placerat felis. Morbi dictum
+                                lacus a vehicula interdum. Donec sapien purus,
+                                cursus vehicula nisl a, iaculis faucibus nisl.</p>
+                        </div>
+                        <div class="hp-lien-content-comment-group">
+                            <div class="hp-lien-content-avatar">
+                                <img src="{{ asset("images/ressources/persona2.jpg") }}"
+                                     alt="Ressources persona 2 jpg"/>
+                            </div>
+                            <div class="hp-lien-content-comment">
+                                <p>Aliquam erat volutpat.
+                                    Nam nec libero ut quam lobortis commodo."</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hp-lien-group-bot" id="hp-lien-2">
+                <div class="hp-lien-container">
+                    <div class="hp-lien-img">
+                        <img src="{{ asset("images/ressources/step-4.png") }}"
+                             alt="Ressources step 4 png"/>
+                    </div>
+                    <div class="hp-lien-content">
+                        <div class="hp-lien-content-title">
+                            <p>Morbi pretium
+                                <span class='hp-lien-underline'>dolor enim</span>
+                        </div>
+                        <div class="hp-lien-content-text">
+                            <p>Ut sapien ipsum, varius eu fermentum eu,
+                                tristique imperdiet velit. Donec sit amet
+                                dui velit. Aliquam elit quam, mollis quis
+                                dictum at, auctor non lorem.</p>
+                        </div>
+                        <div class="hp-lien-content-comment-group">
+                            <div class="hp-lien-content-avatar">
+                                <img src="{{ asset("images/ressources/persona1.jpg") }}"
+                                     alt="Ressources persona 1 jpg"/>
+                            </div>
+                            <div class="hp-lien-content-comment">
+                                <p>Suspendisse ac est purus. Nunc nec orci arcu.</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="hp-bot-top">
+        <div class="hp-bot-top-content">
+            <img src="{{ asset("images/ressources/iplay.png") }}"
+                 alt="Ressources iplay png"/>
+            <p>"Nulla venenatis magna fringilla"</p>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="hp-bot-main">
+        <div class="hp-bot-main-content">
+            <div class="hp-bot-main-title-group">
+                <p>Etiam laot, alique sceleris.</p>
+                <p>Quisque massa turpis, pharetra et venenatis sit amet,
+                    convallis venenatis odio. Maecenas bibendum massa in
+                    tortor maximus semper. Class aptent taciti sociosqu ad
+                    litora torquent per conubia nostra. Nulla facilisi.
+                    Aenean nec aliquam quam. Donec efficitur massa
+                    a ultrices sollicitudin.</p>
+            </div>
+            <div class="hp-bot-main-case-group">
+                <div class="hp-bot-main-case">
+                    <img src="{{ asset("images/ressources/marque1.jpg") }}"
+                         alt="Ressources marque1 jpg"/>
+                    <p>Kyan Boards</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="hp-bot-main-case">
+                    <img src="{{ asset("images/ressources/marque2.jpg") }}"
+                         alt="Ressources marque2 jpg"/>
+                    <p>Atica</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="hp-bot-main-case">
+                    <img src="{{ asset("images/ressources/marque3.jpg") }}"
+                         alt="Ressources marque3 jpg"/>
+                    <p>Treva</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="hp-bot-main-case">
+                    <img src="{{ asset("images/ressources/marque4.jpg") }}"
+                         alt="Ressources marque4 jpg"/>
+                    <p>Kanba</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="hp-bot-main-case">
+                    <img src="{{ asset("images/ressources/marque5.jpg") }}"
+                         alt="Ressources marque5 jpg"/>
+                    <p>Tvit Forms</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="hp-bot-main-case">
+                    <img src="{{ asset("images/ressources/marque6.jpg") }}"
+                         alt="Ressources marque6 jpg"/>
+                    <p>Aven</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="hp-bot-main-case">
+                    <img src="{{ asset("images/ressources/marque7.jpg") }}"
+                         alt="Ressources marque7 jpg"/>
+                    <p>Utosia</p>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="hp-bot-bottom">
+        <div class="hp-bot-bottom-faq-group">
+            <div class="hp-bot-bottom-faq-title-group">
+                <p>FAQ</p>
+                <p>Sed laoreet efficitur quam, sit amet fermentum
+                    risus feugiat vel. Integer quis nisl nisi. Cras
+                    vitae hendrerit risus. Sed eget odio purus.
+                    Maecenas eu neque id arcu semper bibendum.
+                    Morbi vitae nunc blandit libero varius blandit
+                    at non arcu.</p>
+            </div>
+            <div class="hp-bot-bottom-faq-question-group">
+                <a href="{{ path('home') }}">
+                    <div class="hp-bot-bottom-faq-question">
+                        <p>Can I upgrade later on?</p>
+                        <div class="hp-bot-faq-triangle"></div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class="hp-bot-bottom-faq-question">
+                        <p>Can I port my data from another provider?</p>
+                        <div class="hp-bot-faq-triangle"></div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class="hp-bot-bottom-faq-question">
+                        <p>Are my food photos stored forever in the cloud?</p>
+                        <div class="hp-bot-faq-triangle"></div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class="hp-bot-bottom-faq-question">
+                        <p>Who foots the bill for that?</p>
+                        <div class="hp-bot-faq-triangle"></div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class="hp-bot-bottom-faq-question">
+                        <p>What's the real cost</p>
+                        <div class="hp-bot-faq-triangle"></div>
+                    </div>
+                </a>
+                <a href="{{ path('home') }}">
+                    <div class="hp-bot-bottom-faq-question">
+                        <p>Can my company request a custom plan?</p>
+                        <div class="hp-bot-faq-triangle"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="hp-bot-bottom-add-question">
+                <a href="{{ path('home') }}">
+                    <p>Still have unanswered questions?
+                        <span class="add-question">Get in touch</span></p>
+                </a>
+            </div>
+        </div>
+        <div class="hp-bot-ellipse-1">
+            <div class="hp-bot-ellipse-2"></div>
+        </div>
+    </div>
 {% endblock %}

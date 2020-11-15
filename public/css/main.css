@@ -6,11 +6,17 @@ body{
     margin: 0;
     padding: 0;
 }
+img{
+	object-fit: cover;
+}
 main{
-	padding-top: 5rem;
+	padding-top: 58px;
 }
 .clear{
 	clear: both;
+}
+p, a, i, span, h1, h2, h3, h4, h5, h6{
+	margin: 0;
 }
 /*DESIGN*/
 /*bleu foncé*/
@@ -54,9 +60,12 @@ main{
 	position: relative;
 }
 .hp-top-group{
-	width: 64%;
+	width: 80%;
 }
 .hp-top-group{
+	align-items: center;
+	display: flex;
+	justify-content: center;
 	margin: 0 auto;
 }
 .hp-top-group-text, .hp-top-img{
@@ -64,29 +73,39 @@ main{
 	float: left;
 }
 .hp-top-group-text{
-	width: 39%;
+	width: 45%;
 	padding-top: 10%;
 }
 .hp-top-img{
 	padding: 12% 0 0 5%;
-	width: 61%;
 }
 .hp-top-img img{
 	width: 100%;
-	height: 400px;
 }
 .hp-top-title{
 	font-size: 65px;
 	font-weight: 600;
 	line-height: 4.5rem;
-}
-.hp-top-title p{
 	margin-bottom: 15px;
 }
 .hp-top-text{
 	font-size: 17px;
 	text-align: justify;
 	text-justify: inter-word;
+	margin-bottom: 1rem;
+}
+@media only screen and (max-width: 1148px) {
+	.hp-top-text{
+		font-size: 14px;
+	}
+	.hp-top-title{
+		font-size: 48px;
+		line-height: 2.7rem;
+		margin-bottom: 15px;
+	}
+	.hp-top-clip-path-rose-ellipse-2, .hp-top-clip-path-sous-rose-ellipse{
+		display: none;
+	}
 }
 /*hp-top clip-path*/
 .hp-top-clip-path-rose-polygon, .hp-top-clip-path-rose-ellipse, .hp-top-clip-path-rose-ellipse-2, .hp-top-clip-path-sous-rose-circle, .hp-top-clip-path-sous-rose-polygon, .hp-top-clip-path-sous-rose-ellipse{
@@ -117,7 +136,7 @@ main{
 	clip-path: ellipse(44% 75% at 96% 25%);
 	bottom: -90px;
 	right: 500px;
-	width: 600px;
+	width: 400px;
 	height: 300px;
 }
 .hp-top-clip-path-sous-rose-circle{
@@ -135,10 +154,15 @@ main{
 }
 .hp-top-clip-path-sous-rose-ellipse{
 	clip-path: ellipse(37% 22% at 51% 78%);
-	bottom: 15px;
+	bottom: 0;
 	right: 300px;
 	height: 350px;
 	width: 400px;
+}
+@media only screen and (max-width: 1350px) {
+	.hp-top-clip-path-rose-ellipse-2, .hp-top-clip-path-sous-rose-ellipse{
+		display: none;
+	}
 }
 /*hp-top-item*/
 .hp-top-item-group{
@@ -196,12 +220,14 @@ main{
 	width: 90%;
 }
 .hp-lien-group-lien{
-	margin: 70px auto 50px;
-	width: 30%;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin: 70px 0 50px;
 }
 .hp-lien-item{
-	float: left;
-	width: calc(100% / 3);
+	margin: 0 auto;
+	width: max-content;
 }
 .hp-lien-item button{
 	color: #e10080;
@@ -215,12 +241,12 @@ main{
 }
 .hp-lien-group-bot{
 	display: none;
+	width: 95%;
 }
-.hp-lien-img, .hp-lien-content, .hp-lien-content-avatar, .hp-lien-content-comment{
-	float: left;
-}
-#hp-lien-1 .hp-lien-img, #hp-lien-2 .hp-lien-img{
-	float: right;
+.hp-lien-container{
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
 }
 .hp-lien-img{
 	width: 50%;
@@ -228,14 +254,8 @@ main{
 .hp-lien-img img, .hp-lien-item button{
 	width: 100%;
 }
-.hp-lien-img img{
-	height: 450px;
-}
 .hp-lien-content{
-	width: 35%;
-}
-.hp-lien-content{
-	padding: 90px 0 0 40px;
+	width: 45%;
 }
 .hp-lien-content-title{
 	font-size: 44px;
@@ -245,6 +265,7 @@ main{
 }
 .hp-lien-content-text{
 	color: grey;
+	margin-bottom: 1rem;
 	text-justify: inter-word;
 	text-align: justify;
 }
@@ -253,17 +274,18 @@ main{
 	background-color: #fff;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
    	display: flex;
-	margin-top: 22px;
-	padding: 17px 0;
+	padding: 17px 10px;
+	justify-content: space-around;
 }
 .hp-lien-content-comment{
 	width: calc(100% - 86px);
+	text-align: justify;
+	text-justify: inter-word;
 }
 .hp-lien-content-avatar img{
 	border-radius: 90px;
 	height: 60px;
 	margin-right: 10px;
-	margin-left: 16px;
 	width: 60px;
 }
 .hp-lien-underline{
@@ -327,18 +349,23 @@ main{
 .hp-bot-main-title-group p:nth-child(2){
 	margin: 0;
 }
+.hp-bot-main-case-group{
+	align-items: center;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
 .hp-bot-main-case{
    	align-items: center;
 	background-color: white;
 	border-radius: 6%;
 	color: black;
 	display: flex;
-	margin: 0 15px 15px 15px;
-}
-.hp-bot-main-case, .hp-bot-main-case img, .hp-bot-main-case p{
-	float: left;
+	justify-content: center;
+	margin: 1rem;
 }
 .hp-bot-main-case img{
+	border-radius: 90px;
 	height: 30px;
 	margin-left: 12px;
 	width: 30px;
@@ -346,7 +373,7 @@ main{
 .hp-bot-main-case p{
 	font-size: 19px;
 	font-weight: bold;
-	margin: 15px 12px;
+	padding: 15px 12px;
 }
 /*hp_bot_bottom*/
 .hp-bot-bottom-faq-group{
