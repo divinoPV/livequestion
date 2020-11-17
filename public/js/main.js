@@ -85,3 +85,9 @@ $("#search-pcl-btn").click(function search_pcl_btn(){
 	$('#search-pcl-filtre').toggle();
 	});
 });
+//formulaire ajout d'amis
+jQuery(document).on('click', ".add-friend", function (){
+	document.getElementById("friend_receiver").value = jQuery(this).find('input').val();
+	var test = document.getElementById("friend_receiver").value;
+	console.log(test);
+});

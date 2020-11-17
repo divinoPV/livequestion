@@ -1,8 +1,9 @@
+{% set actual_route = app.request.attributes.get('_route') %}
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>Live Question -{% block title %}{% endblock %}</title>
+        <title>Live Question - {% block title %}{% endblock %}</title>
         <link rel="shortcut icon" type="image/x-icon" href="#"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <!-- scrip JS à déclarer en premier -->
@@ -35,31 +36,35 @@
                 <div id="navbar-id" class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien1</a>
+                            <a class="nav-link dropdown-toggle {#{% if actual_route == '' %}active{% endif %}#}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien1</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Action</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien2</a>
+                            <a class="nav-link dropdown-toggle {#{% if actual_route == '' %}active{% endif %}#}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien2</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Action</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien3</a>
+                            <a class="nav-link dropdown-toggle {#{% if actual_route == '' %}active{% endif %}#}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien3</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Action</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien4</a>
+                            <a class="nav-link dropdown-toggle {#{% if actual_route == '' %}active{% endif %}#}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien4</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Action</a>
                             </div>
                         </li>
                     </ul>
-                    <button type="button" onclick="window.location.href='{{ path('login') }}'" class="btn-login">Se connecter</button>
+                    {% if user is defined %}
+                        <button type="button" onclick="window.location.href='{{ path('logout') }}'" class="btn-login">Se déconnecter</button>
+                    {% else %}
+                        <button type="button" onclick="window.location.href='{{ path('login') }}'" class="btn-login">Se connecter</button>
+                    {% endif %}
                 </div>
             </nav>
         </header>

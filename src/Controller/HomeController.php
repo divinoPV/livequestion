@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Link;
 use App\Entity\User;
 use App\Feature\Friend;
+use App\Form\FriendType;
 use App\Service\AnswerService;
 use App\Service\CategoryService;
 use App\Service\UserService;
@@ -18,41 +20,78 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 final class HomeController extends AbstractController
 {
+    public function __construct()
+    {
+
+    }
+
     /**
      * @Route("/", name="home")
-     * @param UserService $profilService
-     * @param QuestionService $questionService
-     * @param AnswerService $answerService
-     * @param CategoryService $categoryService
      * @param Session $session
      * @param UserInterface|null $user
      * @return Response
      */
-    public function index(UserService $profilService,
-                          QuestionService $questionService,
-                          AnswerService  $answerService,
-                          CategoryService $categoryService,
-                          Session $session,
+    public function index(Session $session,
                           ?UserInterface $user): Response
     {
         if ($user) {
-
-            return $this->render('home/test.html.twig', [
-                'profils' => $profilService->getFullProfil(),
-                'questions' => $questionService->getFullQuestion(),
-                'answers' => $answerService->getFullAnswer(),
-                'categories' => $categoryService->getFullCategory(),
-                'message' => $session->get('message')
-            ]);
+            return $this->redirect($this->generateUrl('home-connect'));
         }
 
         return $this->render('home/index.html.twig', [
             'message' => $session->get('message')
-            ]);
+        ]);
     }
 
     /**
-     * @Route("/addFriend", name="addFriend")
+     * @Route("/home", name="home-connect")
+     * @param UserService $profilService
+     * @param QuestionService $questionService
+     * @param AnswerService $answerService
+     * @param CategoryService $categoryService
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param Session $session
+     * @param Link|null $link
+     * @return Response
+     */
+    public function home(UserService $profilService,
+                          QuestionService $questionService,
+                          AnswerService  $answerService,
+                          CategoryService $categoryService,
+                          Request $request,
+                          EntityManagerInterface $manager,
+                          Session $session,
+                          Link $link  = null): Response
+    {
+        if (!$link) $link = new Link();
+
+        $formAddFriend = $this->createForm(FriendType::class, $link, [
+            'action' => $this->generateUrl('add-friend'),
+            'method' => 'GET',
+        ]);
+
+        $formAddFriend->handleRequest($request);
+
+        if ($formAddFriend->isSubmitted() && $formAddFriend->isValid()) {
+            $manager->persist($link);
+            $manager->flush();
+
+            return $this->redirect($this->generateUrl('home'));
+        }
+
+        return $this->render('home/test.html.twig', [
+            'profils' => $profilService->getFullProfil(),
+            'questions' => $questionService->getFullQuestion(),
+            'answers' => $answerService->getFullAnswer(),
+            'categories' => $categoryService->getFullCategory(),
+            'formAddFriend' => $formAddFriend->createView(),
+            'message' => $session->get('message')
+        ]);
+    }
+
+    /**
+     * @Route("/add-friend", name="add-friend")
      * @param Friend $friend
      * @param EntityManagerInterface $manager
      * @param Request $request

@@ -23,26 +23,20 @@
                 <p><img style="height: 90px; width: 90px;" src="{{ profil.image }}"
                         alt="Image aléatoire.">L'utilisateur
                     {{ profil.username }} est un.e
-                    {% for role in profil.roles %}
-                        {{ role }}
-                    {% endfor %}
-                    son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.</p>
+                    {% for role in profil.roles %}{{ role }}{% endfor %}
+                    son email est {{ profil.email }}. C'est un.e {{ profil.gender }}.
+                </p>
                 {% if app.user.id is defined %}
-                    <form action="{{ path('addFriend') }}" method="POST">
-                        <div class="form-group">
-                            <div class="form-item">
-                                <input type="hidden" name="sender" value="{{ app.user.id }}">
-                            </div>
-                            <div class="form-item">
-                                <input type="hidden" name="receiver" value="{{ profil.id }}">
-                            </div>
-                            <input class="btn btn-primary" type="submit" value="Envoyer"/>
-                        </div>
-                    </form>
+                    <a class="add-friend" href="{{ path('add-friend') }}">Ajouter
+                        <input type="hidden" name="receiver" value="{{ profil.id }}">
+                    </a>
                 {% endif %}
                 <br>
             </div>
         {% endfor %}
+        {{ form_start(formAddFriend) }}
+            {{ form_widget(formAddFriend.receiver) }}
+        {{ form_end(formAddFriend) }}
     </section>
     <section id="question">
         <h3>QUESTIONS</h3>

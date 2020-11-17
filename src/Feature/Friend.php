@@ -5,6 +5,7 @@ namespace App\Feature;
 use App\Entity\Link;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 class Friend
 {

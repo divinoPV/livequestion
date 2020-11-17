@@ -24,6 +24,9 @@ p, a, i, span, h1, h2, h3, h4, h5, h6{
 	background-color: #1a2d34;
 }
 /*button*/
+.navbar a.active{
+	color: #8959A8;
+}
 .btn-login, .btn-cta{
 	color: white;
 	border: 0;
