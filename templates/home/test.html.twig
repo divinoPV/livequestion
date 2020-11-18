@@ -34,8 +34,9 @@
                 <br>
             </div>
         {% endfor %}
-        {{ form_start(formAddFriend) }}
+        {{ form_start(formAddFriend, {'attr': {'id': 'add-friend'}}) }}
             {{ form_widget(formAddFriend.receiver) }}
+            <input type="submit">
         {{ form_end(formAddFriend) }}
     </section>
     <section id="question">

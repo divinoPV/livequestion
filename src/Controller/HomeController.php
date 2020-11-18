@@ -68,7 +68,7 @@ final class HomeController extends AbstractController
 
         $formAddFriend = $this->createForm(FriendType::class, $link, [
             'action' => $this->generateUrl('add-friend'),
-            'method' => 'GET',
+            'method' => 'POST',
         ]);
 
         $formAddFriend->handleRequest($request);
@@ -106,17 +106,17 @@ final class HomeController extends AbstractController
                               ?UserInterface $user): Response
     {
         if ($user) {
-            if ($request->getMethod() == 'POST') {
-                $targetUser = $manager->getRepository(User::class)
-                    ->find($request->request->get("receiver"));
-                $connectedUser = $manager->getRepository(User::class)
-                    ->find($request->request->get("sender"));
+            die($request->request->get("friend[receiver]"));
+            $targetUser = $manager->getRepository(User::class)
+                ->find($request->request->get("receiver"));
+            $connectedUser = $manager->getRepository(User::class)
+                ->findOneBy(['username' => $user->getUsername()]);
 
-                $session->set('message', $friend->addFriend($targetUser, $connectedUser));
-            }
-
-            return $this->redirect($this->generateUrl('home'));
+            $session->set('message', $friend->addFriend($targetUser, $connectedUser));
         }
+
+        return $this->redirect($this->generateUrl('home'));
+
 
         return $this->render('home/index.html.twig', [
             'message' => $session->get('message')

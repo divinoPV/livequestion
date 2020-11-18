@@ -18,6 +18,7 @@ class Friend
 
     public function addFriend(User $targetUser, User $connectedUser): string
     {
+        die(1);
         $links = $this->manager->getRepository(Link::class);
 
         $criteria = ['receiver' => $targetUser->getId(), 'sender' => $connectedUser->getId()];
