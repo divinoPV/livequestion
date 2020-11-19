@@ -59,8 +59,6 @@ final class HomeController extends AbstractController
                           QuestionService $questionService,
                           AnswerService  $answerService,
                           CategoryService $categoryService,
-                          Request $request,
-                          EntityManagerInterface $manager,
                           Session $session,
                           Link $link  = null): Response
     {
@@ -70,15 +68,6 @@ final class HomeController extends AbstractController
             'action' => $this->generateUrl('add-friend'),
             'method' => 'POST',
         ]);
-
-        $formAddFriend->handleRequest($request);
-
-        if ($formAddFriend->isSubmitted() && $formAddFriend->isValid()) {
-            $manager->persist($link);
-            $manager->flush();
-
-            return $this->redirect($this->generateUrl('home'));
-        }
 
         return $this->render('home/test.html.twig', [
             'profils' => $profilService->getFullProfil(),
@@ -101,24 +90,19 @@ final class HomeController extends AbstractController
      */
     public function addFriend(Friend $friend,
                               EntityManagerInterface $manager,
-                              Request $request,
                               Session $session,
                               ?UserInterface $user): Response
     {
         if ($user) {
-            die($request->request->get("friend[receiver]"));
             $targetUser = $manager->getRepository(User::class)
-                ->find($request->request->get("receiver"));
+                ->find($_POST['friend']['receiver']);
             $connectedUser = $manager->getRepository(User::class)
                 ->findOneBy(['username' => $user->getUsername()]);
 
             $session->set('message', $friend->addFriend($targetUser, $connectedUser));
         }
 
-        return $this->redirect($this->generateUrl('home'));
-
-
-        return $this->render('home/index.html.twig', [
+        return $this->redirectToRoute('home', [
             'message' => $session->get('message')
         ]);
     }

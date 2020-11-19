@@ -5,7 +5,6 @@ namespace App\Feature;
 use App\Entity\Link;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 class Friend
 {
@@ -18,7 +17,6 @@ class Friend
 
     public function addFriend(User $targetUser, User $connectedUser): string
     {
-        die(1);
         $links = $this->manager->getRepository(Link::class);
 
         $criteria = ['receiver' => $targetUser->getId(), 'sender' => $connectedUser->getId()];

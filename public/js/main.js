@@ -87,41 +87,15 @@ $("#search-pcl-btn").click(function search_pcl_btn(){
 });
 
 //envoie du formulaire add-friend
-window.addEventListener("load", function () {
-	//formulaire ajout d'amis
-	jQuery(document).on('click', ".add-friend", function (){
-		document.getElementById("friend_receiver").value = jQuery(this).find('input').val();
+jQuery(document).on("click", ".add-friend", function(e) {
+	e.preventDefault();
+	document.getElementById("friend_receiver").value = jQuery(this).find('input').val();
+	document.friend.submit();
+});
+document.getElementById("add-friend").addEventListener("submit", function(){
+	var data = new FormData(document.friend);
+	var xhr = new XMLHttpRequest();
 
-		// Accédez à l'élément form …
-		var form = document.getElementById("add-friend");
-
-		// … et prenez en charge l'événement submit.
-		form.addEventListener("submit", function (event) {
-			event.preventDefault();
-		});
-
-		sendData(form);
-
-		return false;
-	});
-	function sendData(form) {
-		var XHR = new XMLHttpRequest();
-		var FD = new FormData(form); // Liez l'objet FormData et l'élément form
-
-		// Définissez ce qui se passe si la soumission s'est opérée avec succès
-		XHR.addEventListener("load", function(event) {
-			alert(event.target.responseText);
-		});
-
-		// Definissez ce qui se passe en cas d'erreur
-		XHR.addEventListener("error", function(event) {
-			alert('Oups! Quelque chose s\'est mal passé.');
-		});
-
-		// Configurez la requête
-		XHR.open("POST", "{{ path('add-friend') }}");
-
-		// Les données envoyées sont ce que l'utilisateur a mis dans le formulaire
-		XHR.send(FD);
-	}
+	xhr.open("POST", "{{ path(add-friend) }}", true);
+	xhr.send(data);
 });

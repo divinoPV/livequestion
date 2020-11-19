@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
+    <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="build(friend request): asynchronous add friend form and friend request">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
@@ -190,6 +190,7 @@
       <workItem from="1605685744998" duration="1866000" />
       <workItem from="1605709382763" duration="109000" />
       <workItem from="1605709815518" duration="4923000" />
+      <workItem from="1605803172090" duration="10458000" />
     </task>
     <task id="LOCAL-00001" summary="init(global): init project and done entity, fixtures, controller and service">
       <created>1602521738526</created>
@@ -302,7 +303,8 @@
     <MESSAGE value="build(home): import public files, update twig base, create nav and footer" />
     <MESSAGE value="refactor(friend): increase HomeController dispatch two routes, add route addFriend" />
     <MESSAGE value="build(home): css/twig home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="build(home): css/twig home page" />
+    <MESSAGE value="build(friend request): asynchronous add friend form and friend request" />
+    <option name="LAST_COMMIT_MESSAGE" value="build(friend request): asynchronous add friend form and friend request" />
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="108" key="#Inspections" timestamp="1604956745905">
@@ -325,10 +327,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1605538171578" />
-    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1605459561157">
+    <state x="425" y="0" key="CommitChangelistDialog2" timestamp="1605823433049">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1605459561157" />
+    <state x="425" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1605823433049" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1605450089955">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
