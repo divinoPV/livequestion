@@ -91,11 +91,12 @@ jQuery(document).on("click", ".add-friend", function(e) {
 	e.preventDefault();
 	document.getElementById("friend_receiver").value = jQuery(this).find('input').val();
 	document.friend.submit();
-});
-document.getElementById("add-friend").addEventListener("submit", function(){
-	var data = new FormData(document.friend);
-	var xhr = new XMLHttpRequest();
 
-	xhr.open("POST", "{{ path(add-friend) }}", true);
-	xhr.send(data);
+	document.getElementById("add-friend").addEventListener("submit", function(){
+		var data = new FormData(document.friend);
+		var xhr = new XMLHttpRequest();
+
+		xhr.open("POST", "{{ path(add-friend) }}", true);
+		xhr.send(data);
+	});
 });

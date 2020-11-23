@@ -60,6 +60,8 @@ final class HomeController extends AbstractController
                           AnswerService  $answerService,
                           CategoryService $categoryService,
                           Session $session,
+                          EntityManagerInterface $manager,
+                          Request $request,
                           Link $link  = null): Response
     {
         if (!$link) $link = new Link();
@@ -68,6 +70,13 @@ final class HomeController extends AbstractController
             'action' => $this->generateUrl('add-friend'),
             'method' => 'POST',
         ]);
+
+        $formAddFriend->handleRequest($request);
+
+        if ($formAddFriend->isSubmitted() && $formAddFriend->isValid()) {
+            $manager->persist($link);
+            $manager->flush();
+        }
 
         return $this->render('home/test.html.twig', [
             'profils' => $profilService->getFullProfil(),
@@ -83,23 +92,32 @@ final class HomeController extends AbstractController
      * @Route("/add-friend", name="add-friend")
      * @param Friend $friend
      * @param EntityManagerInterface $manager
-     * @param Request $request
      * @param Session $session
+     * @param Request $request
      * @param UserInterface|null $user
      * @return Response
      */
     public function addFriend(Friend $friend,
                               EntityManagerInterface $manager,
                               Session $session,
+                              Request $request,
                               ?UserInterface $user): Response
     {
         if ($user) {
-            $targetUser = $manager->getRepository(User::class)
-                ->find($_POST['friend']['receiver']);
-            $connectedUser = $manager->getRepository(User::class)
-                ->findOneBy(['username' => $user->getUsername()]);
+            $data = $request->request->get("friend");
 
-            $session->set('message', $friend->addFriend($targetUser, $connectedUser));
+            if (!empty($data["receiver"])) {
+
+                $targetUser = $manager->getRepository(User::class)
+                    ->find($data['receiver']);
+                $connectedUser = $manager->getRepository(User::class)
+                    ->findOneBy(['username' => $user->getUsername()]);
+
+                if ($targetUser !== null || $connectedUser !== null )
+                {
+                    $session->set('message', $friend->addFriend($targetUser, $connectedUser));
+                }
+            }
         }
 
         return $this->redirectToRoute('home', [

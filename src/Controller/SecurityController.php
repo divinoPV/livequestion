@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\UserType;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +27,23 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error
+        ]);
+    }
+
+    /**
+     * @Route("/register", name="register")
+     */
+    public function register()
+    {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            die("Formulaire validé !");
+        }
+
+        return $this->render('security/register.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 
