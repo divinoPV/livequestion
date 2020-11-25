@@ -52,8 +52,9 @@ $(function(){
 		});
 	});
 });
+
 //Login Register
-$(function(){
+$(function authentification(){
 	$("#btn-login").click(function(){
 		$('#login-display').show();
 		$('#register-display').hide();
@@ -79,6 +80,37 @@ $(function(){
 		});
 	});
 });
+
+//Vérifier l'url login-register
+$(document).ready(function(){
+	var url = new URL(document.location.href);
+	var log = url.searchParams.get("log");
+
+	if (log === "register") {
+		$('#login-display').hide();
+		$('#register-display').show();
+		$('#btn-login').css({
+			"color": "#e10080",
+			"background-color": "#f8f9fd",
+		});
+		$('#btn-registre').css({
+			"color": "white",
+			"background-color": "#e10080",
+		});
+	} else if (log === "register") {
+		$('#login-display').show();
+		$('#register-display').hide();
+		$('#btn-login').css({
+			"color": "white",
+			"background-color": "#e10080",
+		});
+		$('#btn-registre').css({
+			"color": "#e10080",
+			"background-color": "#f8f9fd",
+		});
+	}
+});
+
 //Button Search
 $(function search_pcl_btn(){
 $("#search-pcl-btn").click(function search_pcl_btn(){
@@ -100,3 +132,5 @@ jQuery(document).on("click", ".add-friend", function(e) {
 		xhr.send(data);
 	});
 });
+
+

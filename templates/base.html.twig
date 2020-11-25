@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Live Question - {% block title %}{% endblock %}</title>
-        <link rel="shortcut icon" type="image/x-icon" href="#"/>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/ressources/i2.png') }}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <!-- scrip JS à déclarer en premier -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -26,7 +26,7 @@
         <!-- Ma feuille de style -->
         <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
     </head>
-    <body>
+    <body data-spy="scroll" data-target=".navbar">
         <header>
             <nav class="navbar navbar-expand-lg fixed-top">
                 <a class="navbar-brand" href="#">Saint Vincent BTS 1</a>
@@ -60,11 +60,11 @@
                             </div>
                         </li>
                     </ul>
-                    {% if app.user is not null %}
+                    {% if app.user is not null  %}
                         <button type="button" onclick="window.location.href='{{ path('logout') }}'" class="btn-login">Se déconnecter</button>
                     {% else %}
-                        <button type="button" onclick="window.location.href='{{ path('login') }}'" class="btn-login">Se connecter</button>
-                        <button type="button" onclick="window.location.href='{{ path('register') }}'" class="btn-login">S'inscrire</button>
+                        <button type="button" onclick="window.location.href='{{ path('authentication', {'log': 'login'}) }}'" class="btn-login">Se connecter</button>
+                        <button type="button" onclick="window.location.href='{{ path('authentication', {'log': 'register'}) }}'" class="btn-login">S'inscrire</button>
                     {% endif %}
                 </div>
             </nav>
