@@ -41,9 +41,10 @@ class LinkService
     {
         return $this->em
             ->getRepository(Link::class)
-            ->findBy([],
-                ["ref_receiver" => $receiver],
-                ["ref_sender" => $sender],
-                ["is_pending" => $isPending]);
+            ->findBy([
+                "ref_receiver" => $receiver,
+                "ref_sender" => $sender,
+                "is_pending" => $isPending
+            ]);
     }
 }

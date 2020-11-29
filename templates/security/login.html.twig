@@ -1,25 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Test{% endblock title %}
+{% block title %}Connexion{% endblock title %}
 
 {% block body %}
     <div class="bg-lg-rgt">
         <div class="lg-rgst-display">
             <div class="log-registre-btn">
-                <button id="btn-login" class="btn-log-registre">Se connecter</button>
-                <button id="btn-registre" class="btn-log-registre">S'inscrire</button>
-                <div class="clear"></div>
+                <p class="auth-btn">Se connecter</p>
             </div>
             <div class="display-lg">
                 <div id="login-display">
                     <form method="post">
                         {% if error %}
                             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                        {% endif %}
-                        {% if app.user %}
-                            <div class="mb-3">
-                                You are logged in as {{ app.user.username }}, <a href="{{ path('logout') }}">Logout</a>
-                            </div>
                         {% endif %}
                         <div class="login">
                             <h1 class="h3 mb-3 font-weight-normal">Connexion sécurisé</h1>
@@ -33,10 +26,6 @@
                             <button class="btn btn-lg btn-primary" type="submit">Envoyer</button>
                         </div>
                     </form>
-                </div>
-                <div id="register-display">
-                    {{ form_start(registerForm) }}
-                    {{ form_end(registerForm) }}
                 </div>
             </div>
         </div>

@@ -60,11 +60,11 @@
                             </div>
                         </li>
                     </ul>
-                    {% if app.user is not null  %}
+                    {% if app.user is not null %}
                         <button type="button" onclick="window.location.href='{{ path('logout') }}'" class="btn-login">Se déconnecter</button>
                     {% else %}
-                        <button type="button" onclick="window.location.href='{{ path('authentication', {'log': 'login'}) }}'" class="btn-login">Se connecter</button>
-                        <button type="button" onclick="window.location.href='{{ path('authentication', {'log': 'register'}) }}'" class="btn-login">S'inscrire</button>
+                        <button type="button" onclick="window.location.href='{{ path('login') }}'" class="btn-login">Se connecter</button>
+                        <button type="button" onclick="window.location.href='{{ path('register') }}'" class="btn-login">S'inscrire</button>
                     {% endif %}
                 </div>
             </nav>

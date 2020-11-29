@@ -27,7 +27,7 @@ p, a, i, span, h1, h2, h3, h4, h5, h6{
 .navbar a.active{
 	color: #8959A8;
 }
-.btn-login, .btn-cta{
+.btn-login, .btn-cta, .auth-btn{
 	color: white;
 	border: 0;
 	background-color: #e10080;
@@ -834,10 +834,6 @@ input:-webkit-autofill{
 	text-align: center;
 	width: 50%;
 }
-#btn-login{
-	color: white;
-	background-color: #e10080;
-}
 .log-registre-btn{
 	width: 100%;
 }
@@ -851,8 +847,12 @@ input:-webkit-autofill{
 .display-lg{
 	padding: 7% 5%;
 }
-#register-display{
-	display: none;
+.auth-btn{
+	color: white;
+	background-color: #e10080;
+	border-radius: 12px 12px 0 0;
+	padding: 1rem;
+	text-align: center;
 }
 .form-control{
 	margin-bottom: 1.5vh;
@@ -914,6 +914,9 @@ input:-webkit-autofill{
 }
 .option-friend{
 	float: right;
+}
+#add-friend{
+	display: none;
 }
 /*FOOTER*/
 .footer{

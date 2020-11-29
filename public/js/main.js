@@ -53,30 +53,33 @@ $(function(){
 	});
 });
 
+/*
 //Login Register
-$(function authentification(){
-	$("#btn-login").click(function(){
-		$('#login-display').show();
-		$('#register-display').hide();
-		$('#btn-login').css({
-			"color": "white",
-			"background-color": "#e10080",
+$(document).ready(function(){
+	$(function authentification(){
+		$("#btn-login").click(function(){
+			$('#login-display').show();
+			$('#register-display').hide();
+			$('#btn-login').css({
+				"color": "white",
+				"background-color": "#e10080",
+			});
+			$('#btn-registre').css({
+				"color": "#e10080",
+				"background-color": "#f8f9fd",
+			});
 		});
-		$('#btn-registre').css({
-			"color": "#e10080",
-			"background-color": "#f8f9fd",
-		});
-	});
-	$("#btn-registre").click(function(){
-		$('#login-display').hide();
-		$('#register-display').show();
-		$('#btn-login').css({
-			"color": "#e10080",
-			"background-color": "#f8f9fd",
-		});
-		$('#btn-registre').css({
-			"color": "white",
-			"background-color": "#e10080",
+		$("#btn-registre").click(function(){
+			$('#login-display').hide();
+			$('#register-display').show();
+			$('#btn-login').css({
+				"color": "#e10080",
+				"background-color": "#f8f9fd",
+			});
+			$('#btn-registre').css({
+				"color": "white",
+				"background-color": "#e10080",
+			});
 		});
 	});
 });
@@ -109,7 +112,7 @@ $(document).ready(function(){
 			"background-color": "#f8f9fd",
 		});
 	}
-});
+});*/
 
 //Button Search
 $(function search_pcl_btn(){

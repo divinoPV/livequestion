@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock title %}
+
+{% block body %}
+    <div class="bg-lg-rgt">
+        <div class="lg-rgst-display">
+            <div class="log-registre-btn">
+                <p class="auth-btn">S'inscrire</p>
+            </div>
+            <div class="display-lg">
+                <div id="register-display">
+                    {% if check is defined %}
+                        <div class="alert alert-danger">{{ check }}</div>
+                    {% endif %}
+                    {{ form_start(registerForm) }}
+                    {{ form_end(registerForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

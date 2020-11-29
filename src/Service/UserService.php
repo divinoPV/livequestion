@@ -28,4 +28,15 @@ class UserService
     {
         return $this->em->getRepository(User::class)->findAll();
     }
+
+    public function checkUser(string $email, string $name): bool
+    {
+        $res = $this->em->getRepository(User::class)
+            ->findBy([
+                'email' => $email,
+                'username' => $name
+            ]);
+
+        return empty($res) ? false : true;
+    }
 }

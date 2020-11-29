@@ -11,6 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Exception;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -34,22 +35,46 @@ class User implements UserInterface
     private ?int $id = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min=2,
+     *     minMessage = "Votre nom d'utilisateur doit comporter au minimum {{ limit }} caractères !",
+     *     max=255,
+     *     maxMessage = "Votre nom d'utilisateur ne doit pas dépasser {{ limit }} caractères !"
+     * )
      */
     private string $username;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min=10,
+     *     minMessage = "Votre email doit comporter au minimum {{ limit }} caractères !",
+     *     max=180,
+     *     maxMessage = "Votre email ne doit pas dépasser {{ limit }} caractères !"
+     * )
+     * @Assert\Email(
+     *     message = "L'email '{{ value }}' n'est pas valide !"
+     * )
      */
     private string $email;
 
     /**
      * @ORM\Column(type="json")
      */
-    private array $roles = [];
+    private array $roles = [User::ROLE_USER];
 
     /**
      * @var string|null
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min = 8,
+     *     minMessage = "Votre mot de passe doit comporter au minimum {{ limit }} caractères !",
+     *     max = 255,
+     *     maxMessage = "Votre mot de passe ne doit pas dépasser {{ limit }} caractères !"
+     * )
      */
     private ?string $plainPassword = null;
 
@@ -60,9 +85,16 @@ class User implements UserInterface
     private string $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\File(
+     *     maxSize = "10M",
+     *     maxSizeMessage = "Le fichier {{ name }} est trop volumineux {{ size }}{{ suffix }}. Taille maximum autorisé {{ limit }}{{ suffix }}.",
+     *     mimeTypes = {"image/jpeg", "image/vnd.sealedmedia.softseal.jpg", "image/png"},
+     *     mimeTypesMessage = "Extension {{ type }} non prise en charge. Les extensions prises en charge sont {{ types }}",
+     *     notFoundMessage = "Fichier : {{ file }}, est introuvable !"
+     * )
      */
-    private string $image;
+    private ?string $image = null;
 
     /**
      * @ORM\Column(type="string", length=255)
