@@ -78,9 +78,17 @@ final class HomeController extends AbstractController
             $manager->flush();
         }
 
-        return $this->render('home/test.html.twig', [
+        if (!$request->query->get('searchQuestion'))
+        {
+            $questions = $questionService->getFullQuestion();
+        } else {
+            $questions = $questionService
+                ->getQuestion($request->query->get('searchQuestion'));
+        }
+
+        return $this->render('home/home.html.twig', [
             'profils' => $profilService->getFullProfil(),
-            'questions' => $questionService->getFullQuestion(),
+            'questions' => $questions,
             'answers' => $answerService->getFullAnswer(),
             'categories' => $categoryService->getFullCategory(),
             'formAddFriend' => $formAddFriend->createView(),

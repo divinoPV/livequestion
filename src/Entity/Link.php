@@ -12,14 +12,14 @@ class Link
 {
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="links")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="linksSender")
      * @ORM\JoinColumn(name="ref_sender", nullable=false, referencedColumnName="id")
      */
     private User $sender;
 
     /**
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="linksReceiver")
      * @ORM\JoinColumn(name="ref_receiver", nullable=false, referencedColumnName="id")
      */
     private User $receiver;

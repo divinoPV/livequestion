@@ -2,30 +2,25 @@
 
 namespace App\Service;
 
-use App\Entity\Question;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\QuestionRepository;
+use Doctrine\Common\Collections\Collection;
 
 class QuestionService
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private EntityManagerInterface $em;
+    private QuestionRepository $questionRepository;
 
-    /**
-     * ProjectService constructor.
-     * @param EntityManagerInterface $em
-     */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(QuestionRepository $questionRepository)
     {
-        $this->em = $em;
+        $this->questionRepository = $questionRepository;
     }
 
-    /**
-     * @return array|null
-     */
     public function getFullQuestion(): ?array
     {
-        return $this->em->getRepository(Question::class)->findAll();
+        return $this->questionRepository->findAll();
+    }
+
+    public function getQuestion(string $title): ?Collection
+    {
+        return $this->questionRepository->findTitleConcat($title);
     }
 }

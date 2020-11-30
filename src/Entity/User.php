@@ -36,7 +36,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(
+     *     message = "Veuillez saisir une valeur !"
+     * )
      * @Assert\Length(
      *     min=2,
      *     minMessage = "Votre nom d'utilisateur doit comporter au minimum {{ limit }} caractères !",
@@ -48,7 +50,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(
+     *     message = "Veuillez saisir une valeur !"
+     * )
      * @Assert\Length(
      *     min=10,
      *     minMessage = "Votre email doit comporter au minimum {{ limit }} caractères !",
@@ -68,12 +72,13 @@ class User implements UserInterface
 
     /**
      * @var string|null
-     * @Assert\NotBlank
-     * @Assert\Length(
-     *     min = 8,
-     *     minMessage = "Votre mot de passe doit comporter au minimum {{ limit }} caractères !",
-     *     max = 255,
-     *     maxMessage = "Votre mot de passe ne doit pas dépasser {{ limit }} caractères !"
+     * @Assert\NotBlank(
+     *     message = "Veuillez saisir une valeur !"
+     * )
+     * @Assert\Regex(
+     *     pattern = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,32})$/",
+     *     message = "Votre mot de passe doit contenir un caractère spécial, une lettre minuscule,
+     *     une majuscule, 8 caractères et 32 caractères maximum et un chiffre."
      * )
      */
     private ?string $plainPassword = null;
@@ -126,17 +131,17 @@ class User implements UserInterface
     private DateTime $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="profil")
+     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="user")
      */
     private Collection $questions;
 
     /**
-     * @ORM\OneToMany(targetEntity=Concern::class, mappedBy="profil")
+     * @ORM\OneToMany(targetEntity=Concern::class, mappedBy="user")
      */
     private Collection $concerns;
 
     /**
-     * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="profil")
+     * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="user")
      */
     private Collection $answers;
 
@@ -146,12 +151,12 @@ class User implements UserInterface
     private Collection $linksSender;
 
     /**
-     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="sender")
+     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="receiver")
      */
     private Collection $linksReceiver;
 
     /**
-     * @ORM\OneToMany(targetEntity=Like::class, mappedBy="profil")
+     * @ORM\OneToMany(targetEntity=Like::class, mappedBy="user")
      */
     private Collection $likes;
 

@@ -3,5 +3,86 @@
 {% block title %}Test{% endblock %}
 
 {% block body %}
-
+    <div class="search-pcl">
+        <div class="search-pcl-group">
+            <div class="search-pcl-input-group">
+                <div class="search-pcl-input-img">
+                    <img src="{{ asset('images/svg/search.svg') }}" alt="Svg de recherche">
+                </div>
+                <form action="#" method="post">
+                    <input type="text" name="search_pcl" placeholder="Rechercher une question">
+                </form>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="search_pcl_question">
+        <div class="question">
+            {% if questions|length >= 1 %}
+                {% for question in questions %}
+                    <div class="question-group">
+                        <div class="question-head">
+                            <div class="question-head-top">
+                                <p><a href="#">{{ question.user.username }}
+                                        <span class="role-utilisateur"> -
+                                            {% set roles = question.user.roles %}
+                                            {% for role in roles %}
+                                                {{ role }}
+                                            {% endfor %}
+                                        </span>
+                                </a></p>
+                                {% set i = 0 %}
+                                {% for answer in answers %}
+                                    {% if question.id == answer.question.id %}
+                                        {% set i = i + 1 %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if i == 1 %}
+                                    <p><span class="text-rose">Déjà {{ i }}</span> réponse pour cette question</p>
+                                {% elseif i > 2 %}
+                                    <p><span class="text-rose">Déjà {{ i }}</span> réponses pour cette question</p>
+                                {% else %}
+                                    <p><span class="text-rose">Aucune</span> réponse pour cette question</p>
+                                {% endif %}
+                                <div class="clear"></div>
+                            </div>
+                            <div class="question-under-head">
+                                <img src="{{ asset('images/svg/calendar.svg') }}" alt="Svg de calendar">
+                                <p>{{ question.createdAt | date("m/d/Y") }}</p>
+                                <img src="{{ asset('images/svg/grid.svg') }}" alt="Svg de grid">
+                                <p>{{ question.category.wording }}</p>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="question-body">
+                            <p><a href="#">{{ question.title }}</a></p>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="answer-group">
+                        {% for answer in answers %}
+                            {% if question.id == answer.question.id %}
+                                <article class="answer">
+                                    <p>{{ answer.user.username }} | {{ answer.createdAt | date("m/d/Y") }}</p>
+                                    <p>{{ answer.content }}</p>
+                                </article>
+                                <br>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="clear"></div>
+                {% endfor %}
+            {% else %}
+                <div class="question-error">
+                    <div>
+                        <img src="{{ asset('images/svg/find.svg') }}" alt="Svg de find">
+                    </div>
+                    <p>Il n'y a aucun résultat</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

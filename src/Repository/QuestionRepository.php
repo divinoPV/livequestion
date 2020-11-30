@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @method Question|null find($id, $lockMode = null, $lockVersion = null)
@@ -35,6 +36,15 @@ class QuestionRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findTitleConcat(string $val): ?Collection
+    {
+        return $this->createQueryBuilder('q')
+            ->where("CONCAT('%', :val, '%'")
+            ->setParameter('val', $val)
+            ->getQuery()
+            ->getResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?Question
