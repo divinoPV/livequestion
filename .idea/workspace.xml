@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/dossier_fonctionnel/backlog.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/dossier_fonctionnel/backlog.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/model/mcd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/ressources/bg2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/ressources/bg2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/documentation_fonctionnelle_technique.docx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/documentation_fonctionnelle_technique.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/~WRL3107.tmp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +146,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../wamp64/www/bts1/piscine3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../wamp64/www/private/portfolio_v1.3" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -201,6 +200,7 @@
       <workItem from="1606760928577" duration="41000" />
       <workItem from="1607170689230" duration="1299000" />
       <workItem from="1607190570215" duration="1161000" />
+      <workItem from="1607247119319" duration="1616000" />
     </task>
     <task id="LOCAL-00001" summary="init(global): init project and done entity, fixtures, controller and service">
       <created>1602521738526</created>
@@ -381,10 +381,11 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="435" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1606678179690" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1606760965395">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="580" y="225" key="FileChooserDialogImpl" timestamp="1607257171062">
+      <screen x="0" y="40" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1606760965395" />
+    <state x="580" y="225" key="FileChooserDialogImpl/0.40.1600.860@0.40.1600.860" timestamp="1607257171062" />
     <state x="603" y="156" key="NewPhpClassDialog" timestamp="1605113837526">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
