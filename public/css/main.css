@@ -454,6 +454,11 @@ p, a, i, span, h1, h2, h3, h4, h5, h6{
 	margin: 0;
 	padding: 12px 25px;
 }
+.answer{
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
 /*hp-bot-ellipse*/
 .hp-bot-ellipse-1{
 	height: 300px;
@@ -600,12 +605,18 @@ input:-webkit-autofill{
 	padding-bottom: 8px;
 }
 .search-pcl-input-group img, .search-pcl-input-group input, .search-pcl-button{
-	height: 40px;
+	height: 48px;
 }
 .search-pcl-input-group input, .search-pcl-input-group form{
 	border: none;
 	font-size: 24px;
 	width: 100%;
+}
+.search-pcl-input-group, .search-pcl-input-group form{
+	align-items: center;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
 }
 .search-pcl-input-group input:focus, .search-pcl-filtre-select select:focus{
 	outline: none;
@@ -682,8 +693,13 @@ input:-webkit-autofill{
 .question-group:last-child{
 	margin-bottom: 0;
 }
-.question-group, .question-head .question-head-top p, .question-under-head p, .question-under-head img, .question-head, .question-body, .question-body p{
-	float: left;
+.question-group,
+.question-head,
+.question-body{
+	align-items: center;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
 }
 .question-group p{
 	margin-bottom: 0;

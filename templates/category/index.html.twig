@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Liste des catégories</h1>
+    <a href="{{ path('categories_create') }}">Créer une catégorie</a>
+    <ul>
+        {% for category in categories %}
+            <a href="{{ path('categories_update', {
+                id: category.id
+            }) }}">{{ category.wording|capitalize }}</a>
+        {% endfor %}
+    </ul>
+{% endblock body %}

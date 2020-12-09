@@ -37,10 +37,10 @@ class QuestionRepository extends ServiceEntityRepository
     }
     */
 
-    public function findTitleConcat(string $val): ?Collection
+    public function findTitleConcat(string $val)
     {
         return $this->createQueryBuilder('q')
-            ->where("CONCAT('%', :val, '%'")
+            ->where("q.title LIKE CONCAT('%', :val, '%')")
             ->setParameter('val', $val)
             ->getQuery()
             ->getResult();

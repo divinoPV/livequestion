@@ -17,13 +17,10 @@ class QuestionFixtures extends Fixture implements DependentFixtureInterface
         for($i = 1; $i <= 74; $i++) {
             $question = new Question();
 
-            $j = rand(1,5);
-            $g = rand(1,24);
-
             try {
                 $question
-                    ->setCategory($this->getReference("category-$j"))
-                    ->setUser($this->getReference("user-$g"))
+                    ->setCategory($this->getReference("category-".rand(1,5)))
+                    ->setUser($this->getReference("user-".rand(1,24)))
                     ->setCreatedAt(new DateTime())
                     ->setTitle(Lorem::sentence($nbWords = 6, $variableNbWords = true)." ?")
                     ->setVisibility(Question::VISIBILITY_PUBLIC);

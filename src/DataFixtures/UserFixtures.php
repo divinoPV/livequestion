@@ -30,18 +30,19 @@ class UserFixtures extends Fixture
             $username = $faker->firstName;
             $pwd = Lorem::word();
 
-            $key = rand(0,2);
-
             $user
-                ->addRole($role[$key])
-                ->addGender($gender[$key])
+                ->addRole($role[rand(0,count($gender))])
+                ->addGender($gender[rand(0,2)])
                 ->setEmail($username."@outlook.com")
                 ->setUsername($username)
                 ->setImage(Image::imageUrl($width = 640, $height = 480))
                 ->setPlainPassword($pwd);
 
-            $password = $this->passwordEncoder->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
+            $user->setPassword($this->passwordEncoder
+                ->encodePassword(
+                    $user,
+                    $user->getPlainPassword()
+                ));
 
             $manager->persist($user);
 
@@ -59,8 +60,11 @@ class UserFixtures extends Fixture
             ->setImage(Image::imageUrl($width = 640, $height = 480))
             ->setPlainPassword($pwd2);
 
-        $password2 = $this->passwordEncoder->encodePassword($user2, $user2->getPlainPassword());
-        $user2->setPassword($password2);
+        $user2->setPassword($this->passwordEncoder
+            ->encodePassword(
+                $user2,
+                $user2->getPlainPassword()
+            ));
 
         $manager->persist($user2);
 

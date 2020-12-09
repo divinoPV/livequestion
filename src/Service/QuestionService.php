@@ -19,7 +19,7 @@ class QuestionService
         return $this->questionRepository->findAll();
     }
 
-    public function getQuestion(string $title): ?Collection
+    public function getQuestion(string $title)
     {
         return $this->questionRepository->findTitleConcat($title);
     }

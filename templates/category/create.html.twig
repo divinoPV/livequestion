@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ category is defined ? category.wording|capitalize : "Nouvelle catégorie" }}</h1>
+        {{ form(form) }}
+        {% if category is defined %}
+            <form action="{{ path('categories_delete', {
+                id: category.id
+            }) }}" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('categories_delete') }}">
+                <button type="submit">Supprimer</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock body %}

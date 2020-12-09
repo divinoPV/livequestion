@@ -9,7 +9,7 @@
                 <div class="search-pcl-input-img">
                     <img src="{{ asset('images/svg/search.svg') }}" alt="Svg de recherche">
                 </div>
-                <form action="#" method="post">
+                <form action="{{ path('home-connect') }}" name="search" method="GET">
                     <input type="text" name="search_pcl" placeholder="Rechercher une question">
                 </form>
                 <div class="clear"></div>
@@ -34,13 +34,13 @@
                                 </a></p>
                                 {% set i = 0 %}
                                 {% for answer in answers %}
-                                    {% if question.id == answer.question.id %}
+                                    {% if question == answer.question %}
                                         {% set i = i + 1 %}
                                     {% endif %}
                                 {% endfor %}
                                 {% if i == 1 %}
                                     <p><span class="text-rose">Déjà {{ i }}</span> réponse pour cette question</p>
-                                {% elseif i > 2 %}
+                                {% elseif i >= 2 %}
                                     <p><span class="text-rose">Déjà {{ i }}</span> réponses pour cette question</p>
                                 {% else %}
                                     <p><span class="text-rose">Aucune</span> réponse pour cette question</p>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="answer-group">
                         {% for answer in answers %}
-                            {% if question.id == answer.question.id %}
+                            {% if question == answer.question %}
                                 <article class="answer">
                                     <p>{{ answer.user.username }} | {{ answer.createdAt | date("m/d/Y") }}</p>
                                     <p>{{ answer.content }}</p>

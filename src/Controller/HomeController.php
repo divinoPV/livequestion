@@ -10,6 +10,7 @@ use App\Service\AnswerService;
 use App\Service\CategoryService;
 use App\Service\UserService;
 use App\Service\QuestionService;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,11 +21,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 final class HomeController extends AbstractController
 {
-    public function __construct()
-    {
-
-    }
-
     /**
      * @Route("/", name="home")
      * @param Session $session
@@ -34,13 +30,11 @@ final class HomeController extends AbstractController
     public function index(Session $session,
                           ?UserInterface $user): Response
     {
-        if ($user) {
-            return $this->redirect($this->generateUrl('home-connect'));
-        }
-
-        return $this->render('home/index.html.twig', [
-            'message' => $session->get('message')
-        ]);
+        return $user
+            ? $this->redirect($this->generateUrl('home-connect'))
+            : $this->render('home/index.html.twig', [
+                'message' => $session->get('message')
+            ]);
     }
 
     /**
@@ -73,18 +67,15 @@ final class HomeController extends AbstractController
 
         $formAddFriend->handleRequest($request);
 
-        if ($formAddFriend->isSubmitted() && $formAddFriend->isValid()) {
+        if ($formAddFriend->isSubmitted() && $formAddFriend->isValid()):
             $manager->persist($link);
             $manager->flush();
-        }
+        endif;
 
-        if (!$request->query->get('searchQuestion'))
-        {
-            $questions = $questionService->getFullQuestion();
-        } else {
-            $questions = $questionService
-                ->getQuestion($request->query->get('searchQuestion'));
-        }
+        !$request->query->get('search_pcl')
+            ? $questions = $questionService->getFullQuestion()
+            : $questions = $questionService
+                ->getQuestion($request->query->get('search_pcl'));
 
         return $this->render('home/home.html.twig', [
             'profils' => $profilService->getFullProfil(),
