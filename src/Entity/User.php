@@ -15,7 +15,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"},
+ *     message="Ce compte existe déjà avec cette email !")
+ * @UniqueEntity(fields={"username"},
+ *     message="Ce compte existe déjà avec cet username !")
  */
 class User implements UserInterface
 {
@@ -76,7 +79,7 @@ class User implements UserInterface
      *     message = "Veuillez saisir une valeur !"
      * )
      * @Assert\Regex(
-     *     pattern = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,32})$/",
+     *     pattern = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[.\-+!*$@%_])([.\-+!*$@%_\w]{8,32})$/",
      *     message = "Votre mot de passe doit contenir un caractère spécial, une lettre minuscule,
      *     une majuscule, 8 caractères et 32 caractères maximum et un chiffre."
      * )
@@ -109,12 +112,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $activation_token = null;
+    private ?string $activationToken = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $reset_token = null;
+    private ?string $resetToken = null;
 
     /**
      * @var DateTime $createdAt
@@ -361,24 +364,24 @@ class User implements UserInterface
 
     public function getActivationToken(): ?string
     {
-        return $this->activation_token;
+        return $this->activationToken;
     }
 
-    public function setActivationToken(?string $activation_token): self
+    public function setActivationToken(?string $activationToken): self
     {
-        $this->activation_token = $activation_token;
+        $this->activationToken = $activationToken;
 
         return $this;
     }
 
     public function getResetToken(): ?string
     {
-        return $this->reset_token;
+        return $this->resetToken;
     }
 
-    public function setResetToken(?string $reset_token): self
+    public function setResetToken(?string $resetToken): self
     {
-        $this->reset_token = $reset_token;
+        $this->resetToken = $resetToken;
 
         return $this;
     }

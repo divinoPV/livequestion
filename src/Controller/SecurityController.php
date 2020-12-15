@@ -35,19 +35,9 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if ($userService->checkUser($user->getEmail(),$user->getUsername()) === true) {
+            $password = $user->getPlainPassword();
 
-                return $this->render('security/register.html.twig', [
-                    'registerForm' => $form->createView(),
-                    'check' => "L'email ou le nom  d'utilisateur et déjà pris !"
-                ]);
-            }
-
-            $user->setPassword(
-                $passwordEncoder
-                    ->encodePassword($user,
-                        $user->getPlainPassword())
-            );
+            $user->setPassword($passwordEncoder->encodePassword($user, $password));
 
             $manager->persist($user);
             $manager->flush();
