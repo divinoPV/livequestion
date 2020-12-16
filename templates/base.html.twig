@@ -36,31 +36,20 @@
                 <div id="navbar-id" class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {#{% if actual_route == '' %}active{% endif %}#}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien1</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                            </div>
+                            <a class="nav-link {% if actual_route == 'home-connect' %}active{% endif %}" href="#">Acceuil</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {#{% if actual_route == '' %}active{% endif %}#}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien2</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                            </div>
+                            <a class="nav-link {% if actual_route == 'search' %}active{% endif %}" href="#">Rechercher</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {#{% if actual_route == '' %}active{% endif %}#}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien3</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                            </div>
+                            <a class="nav-link {% if actual_route == 'notice' %}active{% endif %}" href="#">Notification</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {#{% if actual_route == '' %}active{% endif %}#}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lien4</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                            </div>
+                            <a class="nav-link {% if actual_route == 'message' %}active{% endif %}" href="#">Message</a>
                         </li>
                     </ul>
                     {% if app.user is not null %}
+                        <p>{{ app.user.username }}</p>
                         <button type="button" onclick="window.location.href='{{ path('logout') }}'" class="btn-login">Se déconnecter</button>
                     {% else %}
                         <button type="button" onclick="window.location.href='{{ path('login') }}'" class="btn-login">Se connecter</button>

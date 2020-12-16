@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3f16e75e-1cbb-4938-bbe2-2ba944b6916e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +145,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../wamp64/www/bts1/piscine3" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -211,6 +209,8 @@
       <workItem from="1607698319849" duration="1387000" />
       <workItem from="1607716063024" duration="953000" />
       <workItem from="1607932040333" duration="5025000" />
+      <workItem from="1608062020167" duration="485000" />
+      <workItem from="1608149964029" duration="3134000" />
     </task>
     <task id="LOCAL-00001" summary="init(global): init project and done entity, fixtures, controller and service">
       <created>1602521738526</created>
@@ -338,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607543332675</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactor(auth): validator">
+      <created>1608062168483</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1608062168483</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +379,8 @@
     <MESSAGE value="fix(image): bg2" />
     <MESSAGE value="build(auth): finish authentication" />
     <MESSAGE value="build(search): search question" />
-    <option name="LAST_COMMIT_MESSAGE" value="build(search): search question" />
+    <MESSAGE value="refactor(auth): validator" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(auth): validator" />
   </component>
   <component name="WindowStateProjectService">
     <state x="380" y="125" key="#CLI_Interpreters" timestamp="1607942097625">
@@ -405,16 +413,16 @@
       <screen x="0" y="40" width="1600" height="860" />
     </state>
     <state x="547" y="314" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.40.1600.860@0.40.1600.860" timestamp="1607698350887" />
-    <state x="435" y="40" key="CommitChangelistDialog2" timestamp="1607543322344">
+    <state x="435" y="40" key="CommitChangelistDialog2" timestamp="1608062164732">
       <screen x="0" y="40" width="1600" height="860" />
     </state>
     <state x="435" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1606678179690" />
-    <state x="435" y="40" key="CommitChangelistDialog2/0.40.1600.860@0.40.1600.860" timestamp="1607543322344" />
-    <state x="580" y="225" key="FileChooserDialogImpl" timestamp="1607936480055">
+    <state x="435" y="40" key="CommitChangelistDialog2/0.40.1600.860@0.40.1600.860" timestamp="1608062164732" />
+    <state x="580" y="225" key="FileChooserDialogImpl" timestamp="1608150370303">
       <screen x="0" y="40" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1606760965395" />
-    <state x="580" y="225" key="FileChooserDialogImpl/0.40.1600.860@0.40.1600.860" timestamp="1607936480055" />
+    <state x="580" y="225" key="FileChooserDialogImpl/0.40.1600.860@0.40.1600.860" timestamp="1608150370303" />
     <state x="603" y="196" key="NewPhpClassDialog" timestamp="1607698374105">
       <screen x="0" y="40" width="1600" height="860" />
     </state>
@@ -433,11 +441,11 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1606670731358" />
-    <state x="392" y="193" key="Vcs.Push.Dialog.v2" timestamp="1607543337083">
+    <state x="392" y="193" key="Vcs.Push.Dialog.v2" timestamp="1608062171015">
       <screen x="0" y="40" width="1600" height="860" />
     </state>
     <state x="392" y="153" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1606678191633" />
-    <state x="392" y="193" key="Vcs.Push.Dialog.v2/0.40.1600.860@0.40.1600.860" timestamp="1607543337083" />
+    <state x="392" y="193" key="Vcs.Push.Dialog.v2/0.40.1600.860@0.40.1600.860" timestamp="1608062171015" />
     <state x="617" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602521840611">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
